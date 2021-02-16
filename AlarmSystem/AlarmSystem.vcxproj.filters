@@ -16,6 +16,12 @@
     <Filter Include="Pliki źródłowe\Models">
       <UniqueIdentifier>{6ba973ef-0aaa-4b2e-9ca6-0ced54d37b1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Views">
+      <UniqueIdentifier>{8a93da96-7ed5-4640-8fc9-efe95c4521cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Controllers">
+      <UniqueIdentifier>{fe28542e-f734-4e6c-83b4-51d536fbf2ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlarmSystem.cpp">
@@ -27,12 +33,36 @@
     <ClCompile Include="AlarmPanel.cpp">
       <Filter>Pliki źródłowe\Models</Filter>
     </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Pliki źródłowe\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="AlarmPanelView.cpp">
+      <Filter>Pliki źródłowe\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Pliki źródłowe\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="AlarmPanelController.cpp">
+      <Filter>Pliki źródłowe\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="AlarmPanel.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="AlarmPanelView.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="AlarmPanelController.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
