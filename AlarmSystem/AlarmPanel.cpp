@@ -2,18 +2,14 @@
 #include "Device.h"
 #include <iostream>
 
-class AlarmPanel : public Device
+
+AlarmPanel::AlarmPanel(int id, std::string name)
 {
-public:
+	_id = id;
+	_name = name;
+}
 
-	AlarmPanel(std::string name, int id)
-	{
-		_id = id;
-		_name = name;
-	}
-
-	virtual void introduce()
-	{
-		std::cout << _id << _name;
-	}
-};
+void AlarmPanel::introduce()
+{
+	std::cout << _id << " " << _name;
+}

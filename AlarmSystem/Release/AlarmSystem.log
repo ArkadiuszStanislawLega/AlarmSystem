@@ -1,7 +1,9 @@
 ﻿  AlarmPanel.cpp
-F:\GitRepo\AlarmSystem\AlarmSystem\AlarmPanel.cpp(5,18): error C2011: "AlarmPanel'': "class" wpisz ponownie definicję
-F:\GitRepo\AlarmSystem\AlarmSystem\AlarmPanel.h(5): message : zobacz deklarację „AlarmPanel”
   AlarmSystem.cpp
-F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(12,12): error C2440: "=": nie można konwertować z "AlarmPanel (__cdecl *)(void)" na "Device *"
-F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(12,9): message : Brak kontekstu, w którym ta konwersja jest możliwa
   Device.cpp
+  Trwa generowanie kodu
+  85 of 88 functions (96.6%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  AlarmSystem.vcxproj -> F:\GitRepo\AlarmSystem\Release\AlarmSystem.exe

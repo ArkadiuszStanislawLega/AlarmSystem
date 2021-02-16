@@ -6,7 +6,7 @@
 
 int main()
 {
-    AlarmPanel ap();
+    AlarmPanel ap(1, "Panel Alarmowy milion");
 
     Device* d;
     d = &ap;

@@ -4,6 +4,8 @@
 
 class AlarmPanel : public Device
 {
-	AlarmPanel(std::string = "AlarmPanel", int = 0);
+public:
+	AlarmPanel(int = 0, std::string = "AlarmPanel");
+	virtual void Device::introduce();
 };
 
