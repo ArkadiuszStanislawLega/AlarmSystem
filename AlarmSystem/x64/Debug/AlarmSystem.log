@@ -1,0 +1,3 @@
+﻿  AlarmSystem.cpp
+F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(12,12): error C2440: "=": nie można konwertować z "AlarmPanel (__cdecl *)(void)" na "Device *"
+F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(12,9): message : Brak kontekstu, w którym ta konwersja jest możliwa
