@@ -60,6 +60,6 @@ void AlarmPanelView::print_all_logged_in(User* users)
 
 void AlarmPanelView::print_added_user_to_db(User* user)
 {
-	std::cout << "Dodano uzytkownika " << user->Id() << " do bazy danych w ";
+	std::cout << "Dodano uzytkownika " << user->introduce() << " do bazy danych w ";
 	print();
 }
