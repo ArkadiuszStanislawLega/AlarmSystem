@@ -8,8 +8,8 @@
 int main()
 {
     AlarmPanel ap(1, "Panel Alarmowy milion");
-    AlarmPanelView av();
-    AlarmPanelController apc();
+    AlarmPanelView av(1, "Pierwszy panel");
+    AlarmPanelController apc(&ap, &av);
 
     Device* d;
     d = &ap;

@@ -9,7 +9,7 @@ private:
 	AlarmPanelView* _view;
 
 public:
-	AlarmPanelController(AlarmPanel* = 0, AlarmPanelView* = 0);
+	AlarmPanelController(AlarmPanel*, AlarmPanelView*);
 	void get_input();
 	void set_model(AlarmPanel* model);
 	void set_view(AlarmPanelView* view);
