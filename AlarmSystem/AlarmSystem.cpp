@@ -11,7 +11,12 @@ int main()
     AlarmPanelView av(1, "Pierwszy panel");
     AlarmPanelController apc(&ap, &av);
 
-    Device* d;
-    d = &ap;
-    d->introduce();
+    av.print();
+    av.print_authentication(true);
+    av.print_authentication(false);
+    apc.login();
+
+    //Device* d;
+    //d = &ap;
+    //d->introduce();
 }
