@@ -1,6 +1,5 @@
 #include "AlarmPanelController.h"
 
-
 AlarmPanelController::AlarmPanelController(AlarmPanel* model, AlarmPanelView* view)
 {
 	_model = model;
@@ -10,4 +9,14 @@ AlarmPanelController::AlarmPanelController(AlarmPanel* model, AlarmPanelView* vi
 void AlarmPanelController::get_input()
 {
 
+}
+
+void AlarmPanelController::set_model(AlarmPanel* model)
+{
+	_model = model;
+}
+
+void AlarmPanelController::set_view(AlarmPanelView* view)
+{
+	_view = view;
 }

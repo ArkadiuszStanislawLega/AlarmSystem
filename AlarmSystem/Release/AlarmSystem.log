@@ -1,5 +1,10 @@
 ﻿  AlarmPanelController.cpp
-  AlarmPanelView.cpp
-AlarmPanelView.obj : error LNK2001: nierozpoznany symbol zewnętrzny "public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall AlarmPanelView::[View]::Name(void)" (?Name@?QView@@AlarmPanelView@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)
-AlarmPanelView.obj : error LNK2001: nierozpoznany symbol zewnętrzny "public: virtual int __thiscall AlarmPanelView::[View]::Id(void)" (?Id@?QView@@AlarmPanelView@@UAEHXZ)
-F:\GitRepo\AlarmSystem\Release\AlarmSystem.exe : fatal error LNK1120: liczba nierozpoznanych elementów zewnętrznych: 2
+  AlarmSystem.cpp
+F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(12,26): warning C4930: "AlarmPanelController apc(void)": prototypowana funkcja nie została wywołana (czy definicja zmiennej była zamierzona?)
+F:\GitRepo\AlarmSystem\AlarmSystem\AlarmSystem.cpp(11,20): warning C4930: "AlarmPanelView av(void)": prototypowana funkcja nie została wywołana (czy definicja zmiennej była zamierzona?)
+  Trwa generowanie kodu
+  0 of 100 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  AlarmSystem.vcxproj -> F:\GitRepo\AlarmSystem\Release\AlarmSystem.exe

@@ -1,6 +1,6 @@
 #pragma once
-#include "AlarmPanel.h"
-#include "AlarmPanelView.h"
+class AlarmPanel;
+class AlarmPanelView;
 
 class AlarmPanelController
 {
@@ -9,7 +9,9 @@ private:
 	AlarmPanelView* _view;
 
 public:
-	AlarmPanelController(AlarmPanel*, AlarmPanelView*);
+	AlarmPanelController(AlarmPanel* = 0, AlarmPanelView* = 0);
 	void get_input();
+	void set_model(AlarmPanel* model);
+	void set_view(AlarmPanelView* view);
 };
 
