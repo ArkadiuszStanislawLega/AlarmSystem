@@ -15,7 +15,7 @@ int main()
     av.print_authentication(true);
     av.print_authentication(false);
     apc.login();
-
+    apc.get_all_login_users();
     //Device* d;
     //d = &ap;
     //d->introduce();

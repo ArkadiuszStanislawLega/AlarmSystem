@@ -13,9 +13,9 @@ private:
 public:
 	User(int= 0, int = 0, std::string = "Name", std::string = "Surname");
 	std::string introduce();
-	int Id();
-	int Pin();
-	std::string Name();
-	std::string Surname();
+	int* Id();
+	int* Pin();
+	std::string* Name();
+	std::string* Surname();
 };
 

@@ -17,6 +17,7 @@ public:
 	void set_model(AlarmPanel* model);
 	void set_view(AlarmPanelView* view);
 	void login();
+	void get_all_login_users();
 
 	void make_fake_db();
 };

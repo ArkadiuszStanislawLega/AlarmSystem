@@ -7,15 +7,20 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 	_name = name;
 }
 
-
-int AlarmPanel::Id()
+User* AlarmPanel::get_logged_in_users()
 {
-	return _id;
+	return _currently_logged_in;
 }
 
-std::string AlarmPanel::Name()
+
+int* AlarmPanel::Id()
 {
-	return _name;
+	return &_id;
+}
+
+std::string* AlarmPanel::Name()
+{
+	return &_name;
 }
 
 void AlarmPanel::introduce()
@@ -34,24 +39,15 @@ bool AlarmPanel::is_authenticate_user(User user)
 	return false;
 }
 
-bool AlarmPanel::is_user_added(User* user)
+bool AlarmPanel::is_user_added(User user)
 {
-	for (size_t i = 0; i < MAX_AUTHORIZED_USERS; i++)
-	{
-		if (_users_database[i].Id() == user->Id())
-		{
-			return false;
-		}
-	}
+	std::cout << "Proba dodania uzytkownika " << user.introduce() << std::endl;
+	std::cout << "*************************" << std::endl;
 
-
-	for (size_t i = 0; i < MAX_AUTHORIZED_USERS; i++)
-	{
-		if (_users_database[i].Id() == 0)
-		{
-			_users_database[i] = User(user->Id(), user->Pin(), user->Name(), user->Surname());
-			return true;
-		}
+	if (!is_authenticate_user(user)) {
+		_users_database[_user_counter] = user;
+		_user_counter++;
+		return true;
 	}
 
 	return false;

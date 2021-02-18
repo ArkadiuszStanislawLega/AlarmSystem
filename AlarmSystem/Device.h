@@ -9,7 +9,7 @@ protected:
 
 public:
 	virtual void introduce() = 0;
-	virtual int Id() = 0;
-	virtual std::string Name() = 0;
+	virtual int* Id() = 0;
+	virtual std::string* Name() = 0;
 };
 
