@@ -24,15 +24,29 @@ void AlarmPanelController::set_view(AlarmPanelView* view)
 void AlarmPanelController::login()
 {
 	_view->print_login();
+	make_fake_db();
 
-	User u1(1, 1234, "Mietek", "Szczesniak");
-	User u2(2, 4321, "Zenon", "Trombka");
-	User u3(3, 5647, "Czesiek", "Pierdzibak");
+}
 
-	if (_model->is_user_added(&u1))
-		_view->print_added_user_to_db(&u1);
+void AlarmPanelController::make_fake_db()
+{
+	User* users;
+	users = new User[10];
 
-	_model->is_authenticate_user(u1);
-	_model->is_authenticate_user(u2);
-	_model->is_authenticate_user(u3);
+	users[0] = User(1, 1234, "Mietek", "Szczesniak");
+	users[1] = User(2, 4321, "Zenon", "Trombka");
+	users[2] = User(3, 5647, "Czesiek", "Pierdzibak");
+
+	std::cout << "Wielkosc tablicy: "<< sizeof(users) << std::endl;
+	
+	for (size_t i = 0; i < sizeof(users); i++)
+	{
+		if (_model->is_user_added(users))
+			_view->print_added_user_to_db(users);
+
+		_model->is_authenticate_user(users[i]);
+
+		users++;
+	}
+
 }

@@ -4,7 +4,7 @@
 class View
 {
 protected:
-	int _id;
+	int _id{ 0 };
 	std::string _name;
 
 public:
