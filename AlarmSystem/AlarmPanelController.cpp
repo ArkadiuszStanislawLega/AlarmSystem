@@ -41,9 +41,10 @@ void AlarmPanelController::make_fake_db()
 	users[1] = User(2, 4321, "Zenon", "Trombka");
 	users[2] = User(3, 5647, "Czesiek", "Pierdzibak");
 
-	std::cout << "Wielkosc tablicy: "<< sizeof(users) << std::endl;
+	rsize_t users_size = sizeof(users) / sizeof(users[0]);
+	std::cout << "Wielkosc tablicy: "<<  users_size << std::endl;
 	
-	for (size_t i = 0; i < sizeof(users); i++)
+	for (size_t i = 0; i < users_size; i++)
 	{
 		if (_model->is_user_added(users[i]))
 			_view->print_added_user_to_db(&users[i]);
