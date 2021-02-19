@@ -10,10 +10,11 @@ std::string* AlarmPanelView::Name()
 	return &_name;
 }
 
-AlarmPanelView::AlarmPanelView(int id, std::string name )
+AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
 {
 	_id = id;
 	_name = name;
+	_model = model;
 }
 
 void AlarmPanelView::print_authentication(bool authenticated)
@@ -51,11 +52,10 @@ void AlarmPanelView::set_controller(AlarmPanelController* controller)
 
 void AlarmPanelView::print_all_logged_in(User* users)
 {
-	std::cout << "Uzytkownikow zalogowanych w ";
-	print();
-	std::cout << "aktualnie jest " << sizeof(users) << std::endl;
+	size_t users_size = sizeof(users) / sizeof(users[0]);
+	std::cout << "Uzytkownikow zalogowanych w " + _model->label() << " aktualnie jest " << users_size << std::endl;
 
-	for (size_t i = 0; i < sizeof(users); i++)
+	for (size_t i = 0; i < users_size; i++)
 	{
 		std::cout << users->introduce() << std::endl;
 		users++;

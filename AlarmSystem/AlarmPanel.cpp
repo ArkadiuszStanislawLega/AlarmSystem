@@ -1,5 +1,7 @@
 #include "AlarmPanel.h"
+#include <string>
 
+using std::to_string;
 
 AlarmPanel::AlarmPanel(int id, std::string name)
 {
@@ -23,9 +25,9 @@ std::string* AlarmPanel::Name()
 	return &_name;
 }
 
-void AlarmPanel::introduce()
+std::string AlarmPanel::label()
 {
-	std::cout << _id << " " << _name << std::endl;
+	return "ID: " + to_string(_id) + ", " + _name;;
 }
 
 bool AlarmPanel::is_authenticate_user(User user)

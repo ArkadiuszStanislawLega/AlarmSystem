@@ -16,7 +16,7 @@ public:
 	bool is_authenticate_user(User user);
 	bool is_user_added(User user);
 	User* get_logged_in_users();
-	virtual void Device::introduce();
+	virtual std::string Device::label();
 	virtual int* Device::Id();
 	virtual std::string* Device::Name();
 };

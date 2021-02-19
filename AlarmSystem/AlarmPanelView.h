@@ -1,15 +1,17 @@
 #pragma once
 #include "View.h"
 #include "User.h"
+#include "AlarmPanel.h"
 
 class AlarmPanelController;
 class AlarmPanelView : public View
 {
 private:
 	AlarmPanelController* _controller;
+	AlarmPanel* _model;
 
 public:
-	AlarmPanelView(int = 0, std::string = "Alarm Panel View" );
+	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
 	virtual int* View::Id();
 	virtual std::string* View::Name();
