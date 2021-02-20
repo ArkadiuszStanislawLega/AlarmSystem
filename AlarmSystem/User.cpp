@@ -1,23 +1,23 @@
 #include "User.h"
 
-int* User::Id()
+int User::Id()
 {
-	return &_id;
+	return _id;
 }
 
-int* User::Pin()
+int User::Pin()
 {
-	return &_pin;
+	return _pin;
 }
 
-std::string* User::Name()
+std::string User::Name()
 {
-	return &_name;
+	return _name;
 }
 
-std::string* User::Surname()
+std::string User::Surname()
 {
-	return &_surname;
+	return _surname;
 }
 
 User::User(int id, int pin, std::string name, std:: string surname)

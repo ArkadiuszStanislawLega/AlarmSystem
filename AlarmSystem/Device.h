@@ -9,7 +9,7 @@ protected:
 
 public:
 	virtual std::string label() = 0;
-	virtual int* Id() = 0;
-	virtual std::string* Name() = 0;
+	virtual int Id() = 0;
+	virtual std::string Name() = 0;
 };
 

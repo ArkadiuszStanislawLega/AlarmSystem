@@ -50,15 +50,13 @@ void AlarmPanelView::set_controller(AlarmPanelController* controller)
 	_controller = controller;
 }
 
-void AlarmPanelView::print_all_logged_in(User* users)
+void AlarmPanelView::print_all_logged_in()
 {
-	size_t users_size = sizeof(users) / sizeof(users[0]);
-	std::cout << "Uzytkownikow zalogowanych w " + _model->label() << " aktualnie jest " << users_size << std::endl;
+	std::cout << "Uzytkownikow zalogowanych w " + _model->label() << " aktualnie jest " << _model->users_logged_in() << std::endl;
 
-	for (size_t i = 0; i < users_size; i++)
+	for (size_t i = 0; i < _model->users_logged_in(); i++)
 	{
-		std::cout << users->introduce() << std::endl;
-		users++;
+		std::cout << _model->get_logged_in_users()[i].introduce() << std::endl;
 	}
 }
 

@@ -30,7 +30,7 @@ void AlarmPanelController::login()
 
 void AlarmPanelController::get_all_login_users()
 {
-	_view->print_all_logged_in(_model->get_logged_in_users());
+	_view->print_all_logged_in();
 }
 
 void AlarmPanelController::make_fake_db()
@@ -49,7 +49,7 @@ void AlarmPanelController::make_fake_db()
 		if (_model->is_user_added(users[i]))
 			_view->print_added_user_to_db(&users[i]);
 
-		_model->is_authenticate_user(users[i]);
+		_model->login(users[i]);
 	}
 
 }
