@@ -1,21 +1,21 @@
 #include "User.h"
 
-int User::Id()
+int User::id()
 {
 	return _id;
 }
 
-int User::Pin()
+int User::pin()
 {
 	return _pin;
 }
 
-std::string User::Name()
+std::string User::name()
 {
 	return _name;
 }
 
-std::string User::Surname()
+std::string User::surname()
 {
 	return _surname;
 }

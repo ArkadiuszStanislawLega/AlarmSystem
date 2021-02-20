@@ -11,7 +11,7 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 
 bool AlarmPanel::login(User user)
 {
-	if (is_authenticate_user(user))
+	if (is_authenticate_user(&user))
 	{
 		_currently_logged_in[_users_logged_in] = user;
 		_users_logged_in++;
@@ -47,11 +47,11 @@ std::string AlarmPanel::label()
 	return "ID: " + to_string(_id) + ", " + _name;;
 }
 
-bool AlarmPanel::is_authenticate_user(User user)
+bool AlarmPanel::is_authenticate_user(User* user)
 {
-	for (size_t i = 0; i < sizeof(_users_database); i++)
+	for (size_t i = 0; i < _users_counter_in_db; i++)
 	{
-		if (user.Id() == _users_database[i].Id())
+		if (user->id() == _users_database[i].id())
 			return true;
 	}
 
@@ -60,7 +60,7 @@ bool AlarmPanel::is_authenticate_user(User user)
 
 bool AlarmPanel::is_user_added(User user)
 {
-	if (!is_authenticate_user(user)) {
+	if (!is_authenticate_user(&user)) {
 		_users_database[_users_counter_in_db] = user;
 		_users_counter_in_db++;
 		return true;

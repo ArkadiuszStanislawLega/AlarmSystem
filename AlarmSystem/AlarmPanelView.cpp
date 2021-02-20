@@ -37,12 +37,12 @@ void AlarmPanelView::print_login()
 
 void AlarmPanelView::print_logged_in(User user)
 {
-	std::cout << "Witaj " << user.Name() << std::endl;
+	std::cout << "Witaj " << user.name() << std::endl;
 }
 
 void AlarmPanelView::print_logged_out(User user)
 {
-	std::cout << "Do widzenia " << user.Name() << std::endl;
+	std::cout << "Do widzenia " << user.name() << std::endl;
 }
 
 void AlarmPanelView::set_controller(AlarmPanelController* controller)
@@ -54,7 +54,7 @@ void AlarmPanelView::print_all_logged_in()
 {
 	std::cout << "Uzytkownikow zalogowanych w " + _model->label() << " aktualnie jest " << _model->users_logged_in() << std::endl;
 
-	for (size_t i = 0; i < _model->users_logged_in(); i++)
+	for (size_t i = 0; i < (size_t)_model->users_logged_in(); i++)
 	{
 		std::cout << _model->get_logged_in_users()[i].introduce() << std::endl;
 	}
