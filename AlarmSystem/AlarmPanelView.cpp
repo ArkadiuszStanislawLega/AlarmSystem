@@ -11,10 +11,19 @@ std::string* AlarmPanelView::Name()
 }
 
 AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
-{
+{	
 	_id = id;
 	_name = name;
 	_model = model;
+}
+void AlarmPanelView::print_stress()
+{
+	for (size_t i = 0; i < 80; i++)
+	{
+		std::cout << "_";
+	}
+
+	std::cout << std::endl;
 }
 
 void AlarmPanelView::print_authentication(bool authenticated)
@@ -23,11 +32,13 @@ void AlarmPanelView::print_authentication(bool authenticated)
 		std::cout << "Zalogowany" << std::endl;
 	else
 		std::cout << "Nie zalogowany" << std::endl;
+
+	print_stress();
 }
 
-void AlarmPanelView::print()
+std::string AlarmPanelView::label()
 {
-	std::cout << _id << " " << _name << std::endl;
+	return _id + " " + _name + "> ";
 }
 
 void AlarmPanelView::print_login()
@@ -52,34 +63,36 @@ void AlarmPanelView::set_controller(AlarmPanelController* controller)
 
 void AlarmPanelView::print_all_logged_in()
 {
-	std::cout << "Uzytkownikow zalogowanych w " + _model->label() << " aktualnie jest " << _model->users_logged_in() << std::endl;
+	print_stress();
+	std::cout << label() << "Aktualnie zalogowani uzytkownicy: " << _model->users_logged_in() << std::endl;
 
 	for (size_t i = 0; i < (size_t)_model->users_logged_in(); i++)
 	{
 		std::cout << _model->get_logged_in_users()[i].introduce() << std::endl;
 	}
+	print_stress();
 }
 
 void AlarmPanelView::print_added_user_to_db(User* user)
 {
-	std::cout << "Dodano uzytkownika " << user->introduce() << " do bazy danych w ";
-	print();
+	std::cout << label() << "Dodano uzytkownika " << user->introduce() << "  do bazy danych." << std::endl;
 }
 
 void AlarmPanelView::print_remove_user_from_db(User* user)
 {
-	std::cout << "Usunieto uzytkownika " << user->introduce() << " z bazy danych w ";
-	print();
+	std::cout << label() << "Usunieto uzytkownika " << user->introduce() << "." << std::endl;
 }
 
 
 void AlarmPanelView::print_all_users_from_db()
 {
-	std::cout << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
+	print_stress();
+	std::cout << label() << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
 	User* pointer = _model->get_users();
 	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
 	{
 		std::cout << pointer->introduce() << std::endl;
 		pointer++;
 	}
+	print_stress();
 }

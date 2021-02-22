@@ -16,8 +16,9 @@ public:
 	virtual int* View::Id();
 	virtual std::string* View::Name();
 
-	virtual void View::print();
+	virtual std::string View::label();
 
+	void print_stress();
 	void print_authentication(bool);
 	void print_login();
 	void print_logged_in(User user);
