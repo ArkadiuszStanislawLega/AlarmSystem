@@ -13,6 +13,7 @@ int main()
 
     apc.login();
     apc.get_all_login_users();
+
     User u = User(2, 4321, "Zenon", "Trombka");
     apc.remove_user(&u);
     apc.get_all_login_users();

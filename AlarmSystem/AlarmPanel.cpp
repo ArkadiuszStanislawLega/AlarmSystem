@@ -96,8 +96,9 @@ bool AlarmPanel::logout(User* user)
 	{
 		if (_currently_logged_in[i].id() == user->id())
 		{
-			_currently_logged_in[i] = NULL;
 			_users_logged_in--;
+			_currently_logged_in[i] = _currently_logged_in[_users_logged_in];
+			_currently_logged_in[_users_logged_in] = NULL;
 			return true;
 		}
 	}
@@ -114,11 +115,20 @@ bool AlarmPanel::is_user_removed(User* user)
 			logout(user);
 			for (size_t i = 0; i < _users_counter_in_db; i++)
 			{
-				_users_database[i] = NULL;
-				_users_counter_in_db--;
-				return true;
+				if(_users_database[i].id() == user->id())
+				{
+					_users_counter_in_db--;
+					_users_database[i] = _users_database[_users_counter_in_db];
+					_users_database[_users_counter_in_db] = NULL;
+					return true;
+				}
 			}
 		}
 	}
 	return false;
+}
+
+void AlarmPanel::sort_users()
+{
+
 }

@@ -75,8 +75,8 @@ void AlarmPanelView::print_remove_user_from_db(User* user)
 
 void AlarmPanelView::print_all_users_from_db()
 {
-	std::cout << "Uzytkownicy w bazie danych: " << _model->users_couter_in_db() << std::endl;
-	User* pointer = _model->get_logged_in_users();
+	std::cout << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
+	User* pointer = _model->get_users();
 	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
 	{
 		std::cout << pointer->introduce() << std::endl;

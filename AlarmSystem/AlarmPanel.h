@@ -13,6 +13,8 @@ private:
 	int _users_counter_in_db{ 0 };
 	int _users_logged_in{ 0 };
 
+	void sort_users();
+
 public:
 	AlarmPanel(int = 0, std::string = "AlarmPanel");
 	int users_logged_in();
