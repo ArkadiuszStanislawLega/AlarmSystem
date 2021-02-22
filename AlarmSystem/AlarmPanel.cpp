@@ -68,3 +68,45 @@ bool AlarmPanel::is_user_added(User user)
 
 	return false;
 }
+
+bool AlarmPanel::is_user_currently_logged_in(User* user)
+{
+	for (size_t i = 0; i < _users_logged_in; i++)
+	{
+		if (_currently_logged_in[i].id() == user->id())
+			return true;
+	}
+
+	return false;
+}
+
+bool AlarmPanel::logout(User* user)
+{
+	for (size_t i = 0; i < _users_logged_in; i++)
+	{
+		if (_currently_logged_in[i].id() == user->id())
+		{
+			_currently_logged_in[i] = NULL;
+			_users_logged_in--;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool AlarmPanel::is_user_removed(User* user)
+{
+	if (is_authenticate_user(user))
+	{
+		if (is_user_currently_logged_in(user))
+		{
+			logout(user);
+
+		}
+			
+	}
+	
+
+	return false;
+}
