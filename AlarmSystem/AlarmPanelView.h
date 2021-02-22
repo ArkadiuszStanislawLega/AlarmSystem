@@ -9,6 +9,8 @@ class AlarmPanelView : public View
 private:
 	AlarmPanelController* _controller;
 	AlarmPanel* _model;
+	void print_stress();
+	std::string print_tab();
 
 public:
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
@@ -18,7 +20,6 @@ public:
 
 	virtual std::string View::label();
 
-	void print_stress();
 	void print_authentication(bool);
 	void print_login();
 	void print_logged_in(User user);

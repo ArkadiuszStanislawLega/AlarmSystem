@@ -32,13 +32,11 @@ void AlarmPanelView::print_authentication(bool authenticated)
 		std::cout << "Zalogowany" << std::endl;
 	else
 		std::cout << "Nie zalogowany" << std::endl;
-
-	print_stress();
 }
 
 std::string AlarmPanelView::label()
 {
-	return _id + " " + _name + "> ";
+	return _name  + "> ";
 }
 
 void AlarmPanelView::print_login()
@@ -63,14 +61,12 @@ void AlarmPanelView::set_controller(AlarmPanelController* controller)
 
 void AlarmPanelView::print_all_logged_in()
 {
-	print_stress();
 	std::cout << label() << "Aktualnie zalogowani uzytkownicy: " << _model->users_logged_in() << std::endl;
 
 	for (size_t i = 0; i < (size_t)_model->users_logged_in(); i++)
 	{
-		std::cout << _model->get_logged_in_users()[i].introduce() << std::endl;
+		std::cout <<print_tab() << _model->get_logged_in_users()[i].id() << ". " << _model->get_logged_in_users()[i].introduce() << std::endl;
 	}
-	print_stress();
 }
 
 void AlarmPanelView::print_added_user_to_db(User* user)
@@ -91,8 +87,18 @@ void AlarmPanelView::print_all_users_from_db()
 	User* pointer = _model->get_users();
 	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
 	{
-		std::cout << pointer->introduce() << std::endl;
+		std::cout << print_tab() << pointer->id() << ". " << pointer->introduce() << std::endl;
 		pointer++;
 	}
 	print_stress();
+}
+
+std::string AlarmPanelView::print_tab()
+{
+	std::string tab;
+	for (size_t i = 0; i < _name.length()+2; i++)
+	{
+		tab += " ";
+	}
+	return tab;
 }
