@@ -29,6 +29,7 @@ void AlarmPanelController::set_view(AlarmPanelView* view)
 void AlarmPanelController::login()
 {
 	_view->print_login();
+	_view->print_logged_in(User(123,32123, "Mortadela", "Tarabaniaz"));
 	make_fake_db();
 
 }
@@ -47,7 +48,6 @@ void AlarmPanelController::make_fake_db()
 	users[2] = User(3, 5647, "Czesiek", "Pierdzibak");
 
 	rsize_t users_size = sizeof(users) / sizeof(users[0]);
-	std::cout << "Wielkosc tablicy: "<<  users_size << std::endl;
 	
 	for (size_t i = 0; i < users_size; i++)
 	{

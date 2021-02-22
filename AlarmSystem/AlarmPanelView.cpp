@@ -61,7 +61,7 @@ void AlarmPanelView::set_controller(AlarmPanelController* controller)
 
 void AlarmPanelView::print_all_logged_in()
 {
-	std::cout << label() << "Aktualnie zalogowani uzytkownicy: " << _model->users_logged_in() << std::endl;
+	std::cout << label() << "Aktualnie zalogowani uzytkownicy(" << _model->users_logged_in() << "): "<< std::endl;
 
 	for (size_t i = 0; i < (size_t)_model->users_logged_in(); i++)
 	{
@@ -82,7 +82,6 @@ void AlarmPanelView::print_remove_user_from_db(User* user)
 
 void AlarmPanelView::print_all_users_from_db()
 {
-	print_stress();
 	std::cout << label() << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
 	User* pointer = _model->get_users();
 	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
@@ -90,7 +89,6 @@ void AlarmPanelView::print_all_users_from_db()
 		std::cout << print_tab() << pointer->id() << ". " << pointer->introduce() << std::endl;
 		pointer++;
 	}
-	print_stress();
 }
 
 std::string AlarmPanelView::print_tab()

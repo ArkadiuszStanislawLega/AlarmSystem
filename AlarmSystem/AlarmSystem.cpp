@@ -19,11 +19,11 @@ int main()
     User u3 = User(3, 5647, "Czesiek", "Pierdzibak");
 
     apc.remove_user(&u1);
-    apc.remove_user(&u2);
-    apc.remove_user(&u3);
-
-    apc.get_all_login_users();
     apc.get_users();
+    apc.remove_user(&u3);
+    
+    apc.get_users();
+    apc.get_all_login_users();
 
     //Device* d;
     //d = &ap;
