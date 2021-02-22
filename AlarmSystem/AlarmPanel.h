@@ -19,7 +19,10 @@ public:
 
 	bool is_authenticate_user(User* user);
 	bool is_user_added(User user);
+	bool is_user_removed(User* user);
+	bool is_user_currently_logged_in(User* user);
 	bool login(User user);
+	bool logout(User* user);
 
 	User* get_logged_in_users();
 

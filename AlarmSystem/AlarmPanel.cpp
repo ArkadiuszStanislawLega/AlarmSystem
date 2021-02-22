@@ -102,10 +102,17 @@ bool AlarmPanel::is_user_removed(User* user)
 		if (is_user_currently_logged_in(user))
 		{
 			logout(user);
-
+			for (size_t i = 0; i < _users_counter_in_db; i++)
+			{
+				_users_database[i] = NULL;
+				_users_counter_in_db--;
+				return true;
+			}
 		}
 			
 	}
+
+	return false;
 	
 
 	return false;
