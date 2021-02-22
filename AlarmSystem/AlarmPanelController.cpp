@@ -51,5 +51,10 @@ void AlarmPanelController::make_fake_db()
 
 		_model->login(users[i]);
 	}
+}
 
+void AlarmPanelController::logout(User* user)
+{
+	if (_model->logout(user))
+		_view->print_logged_out(user);
 }

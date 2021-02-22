@@ -109,7 +109,6 @@ bool AlarmPanel::is_user_removed(User* user)
 				return true;
 			}
 		}
-			
 	}
 
 	return false;

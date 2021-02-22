@@ -21,7 +21,7 @@ public:
 	void print_authentication(bool);
 	void print_login();
 	void print_logged_in(User user);
-	void print_logged_out(User user); 
+	void print_logged_out(User* user); 
 	void print_all_logged_in();
 	void print_added_user_to_db(User* user);
 	void set_controller(AlarmPanelController* controller);

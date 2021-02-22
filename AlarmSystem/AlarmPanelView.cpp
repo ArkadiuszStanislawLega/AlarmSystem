@@ -40,9 +40,9 @@ void AlarmPanelView::print_logged_in(User user)
 	std::cout << "Witaj " << user.name() << std::endl;
 }
 
-void AlarmPanelView::print_logged_out(User user)
+void AlarmPanelView::print_logged_out(User* user)
 {
-	std::cout << "Do widzenia " << user.name() << std::endl;
+	std::cout << "Wylogowano " << user->introduce() << std::endl;
 }
 
 void AlarmPanelView::set_controller(AlarmPanelController* controller)
