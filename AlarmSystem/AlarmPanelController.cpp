@@ -11,6 +11,11 @@ void AlarmPanelController::get_input()
 	std::cin >> _input_password >> _input_pin;
 }
 
+void AlarmPanelController::get_users()
+{
+	_view->print_all_users_from_db();
+}
+
 void AlarmPanelController::set_model(AlarmPanel* model)
 {
 	_model = model;
@@ -57,4 +62,10 @@ void AlarmPanelController::logout(User* user)
 {
 	if (_model->logout(user))
 		_view->print_logged_out(user);
+}
+
+void AlarmPanelController::remove_user(User* user)
+{
+	if (_model->is_user_removed(user))
+		_view->print_remove_user_from_db(user);
 }

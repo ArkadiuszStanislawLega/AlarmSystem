@@ -65,3 +65,21 @@ void AlarmPanelView::print_added_user_to_db(User* user)
 	std::cout << "Dodano uzytkownika " << user->introduce() << " do bazy danych w ";
 	print();
 }
+
+void AlarmPanelView::print_remove_user_from_db(User* user)
+{
+	std::cout << "Usunieto uzytkownika " << user->introduce() << " z bazy danych w ";
+	print();
+}
+
+
+void AlarmPanelView::print_all_users_from_db()
+{
+	std::cout << "Uzytkownicy w bazie danych: " << _model->users_couter_in_db() << std::endl;
+	User* pointer = _model->get_logged_in_users();
+	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
+	{
+		std::cout << pointer->introduce() << std::endl;
+		pointer++;
+	}
+}

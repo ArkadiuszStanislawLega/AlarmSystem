@@ -14,10 +14,12 @@ private:
 public:
 	AlarmPanelController(AlarmPanel*, AlarmPanelView*);
 	void get_input();
+	void get_users();
 	void set_model(AlarmPanel* model);
 	void set_view(AlarmPanelView* view);
 	void login();
 	void logout(User* user);
+	void remove_user(User* user);
 	void get_all_login_users();
 
 	void make_fake_db();

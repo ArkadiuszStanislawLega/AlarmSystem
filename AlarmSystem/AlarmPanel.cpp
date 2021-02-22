@@ -9,6 +9,11 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 	_name = name;
 }
 
+int AlarmPanel::users_couter_in_db()
+{
+	return _users_counter_in_db;
+}
+
 bool AlarmPanel::login(User user)
 {
 	if (is_authenticate_user(&user))
@@ -20,6 +25,11 @@ bool AlarmPanel::login(User user)
 
 	return false;
 
+}
+
+User* AlarmPanel::get_users()
+{
+	return _users_database;
 }
 
 User* AlarmPanel::get_logged_in_users()
@@ -110,9 +120,5 @@ bool AlarmPanel::is_user_removed(User* user)
 			}
 		}
 	}
-
-	return false;
-	
-
 	return false;
 }

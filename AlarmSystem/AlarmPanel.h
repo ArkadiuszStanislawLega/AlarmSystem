@@ -16,6 +16,7 @@ private:
 public:
 	AlarmPanel(int = 0, std::string = "AlarmPanel");
 	int users_logged_in();
+	int users_couter_in_db();
 
 	bool is_authenticate_user(User* user);
 	bool is_user_added(User user);
@@ -25,6 +26,7 @@ public:
 	bool logout(User* user);
 
 	User* get_logged_in_users();
+	User* get_users();
 
 	virtual std::string Device::label();
 	virtual int Device::Id();
