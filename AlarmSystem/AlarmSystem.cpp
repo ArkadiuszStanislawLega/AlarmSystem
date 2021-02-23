@@ -14,13 +14,22 @@ int main()
     apc.login();
     apc.get_all_login_users();
 
-    User u1 = User(1, 1234, "Mietek", "Szczesniak");
-    User u2 = User(2, 4321, "Zenon", "Trombka");
-    User u3 = User(3, 5647, "Czesiek", "Pierdzibak");
+    User users[3];
 
-    apc.remove_user(&u1);
+    users[0] = User(1, 1234, "Mietek", "Szczesniak");
+    users[1] = User(2, 4321, "Zenon", "Trombka");
+    users[2] = User(3, 5647, "Czesiek", "Pierdzibak");
+
+    size_t users_size = sizeof(users) / sizeof(users[0]);
+
+    for (size_t i = 0; i < users_size; i++)
+    {
+        apc.add_user(users[i]);
+    }
+
+    apc.remove_user(&users[0]);
     apc.get_users();
-    apc.remove_user(&u3);
+    apc.remove_user(&users[2]);
     
     apc.get_users();
     apc.get_all_login_users();

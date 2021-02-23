@@ -26,6 +26,7 @@ public:
 	void print_logged_out(User* user); 
 	void print_all_logged_in();
 	void print_added_user_to_db(User* user);
+	void print_fail_to_add_user(User* user);
 	void print_remove_user_from_db(User* user);
 	void print_all_users_from_db();
 	void set_controller(AlarmPanelController* controller);

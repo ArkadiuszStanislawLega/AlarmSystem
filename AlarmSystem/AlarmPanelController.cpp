@@ -30,8 +30,6 @@ void AlarmPanelController::login()
 {
 	_view->print_login();
 	_view->print_logged_in(User(123,32123, "Mortadela", "Tarabaniaz"));
-	make_fake_db();
-
 }
 
 void AlarmPanelController::get_all_login_users()
@@ -39,23 +37,12 @@ void AlarmPanelController::get_all_login_users()
 	_view->print_all_logged_in();
 }
 
-void AlarmPanelController::make_fake_db()
+void AlarmPanelController::add_user(User user)
 {
-	User users[3];
-
-	users[0] = User(1, 1234, "Mietek", "Szczesniak");
-	users[1] = User(2, 4321, "Zenon", "Trombka");
-	users[2] = User(3, 5647, "Czesiek", "Pierdzibak");
-
-	rsize_t users_size = sizeof(users) / sizeof(users[0]);
-	
-	for (size_t i = 0; i < users_size; i++)
-	{
-		if (_model->is_user_added(users[i]))
-			_view->print_added_user_to_db(&users[i]);
-
-		_model->login(users[i]);
-	}
+	if (_model->is_user_added(user))
+		_view->print_added_user_to_db(&user);
+	else
+		_view->print_fail_to_add_user(&user);
 }
 
 void AlarmPanelController::logout(User* user)

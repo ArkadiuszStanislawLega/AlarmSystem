@@ -21,7 +21,6 @@ public:
 	void logout(User* user);
 	void remove_user(User* user);
 	void get_all_login_users();
-
-	void make_fake_db();
+	void add_user(User user);
 };
 

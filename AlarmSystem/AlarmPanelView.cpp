@@ -74,6 +74,11 @@ void AlarmPanelView::print_added_user_to_db(User* user)
 	std::cout << label() << "Dodano uzytkownika " << user->introduce() << "  do bazy danych." << std::endl;
 }
 
+void AlarmPanelView::print_fail_to_add_user(User* user)
+{
+	std::cout << label() << "Blad podczas dodawa uzytkownika " << user->introduce() << std::endl;
+}
+
 void AlarmPanelView::print_remove_user_from_db(User* user)
 {
 	std::cout << label() << "Usunieto uzytkownika " << user->introduce() << "." << std::endl;
