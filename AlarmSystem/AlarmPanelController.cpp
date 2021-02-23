@@ -2,65 +2,65 @@
 
 AlarmPanelController::AlarmPanelController(AlarmPanel* model, AlarmPanelView* view)
 {
-	_model = model;
-	_view = view;
+	this->_model = model;
+	this->_view = view;
 }
 
-void AlarmPanelController::get_input()
+void AlarmPanelController::GetInput()
 {
-	std::cin >> _input_password >> _input_pin;
+	std::cin >> this->_input_password >> this->_input_pin;
 }
 
-void AlarmPanelController::get_users()
+void AlarmPanelController::GetUsers()
 {
-	_view->print_all_users_from_db();
+	this->_view->PrintUsers();
 }
 
-void AlarmPanelController::set_model(AlarmPanel* model)
+void AlarmPanelController::SetModel(AlarmPanel* model)
 {
-	_model = model;
+	this->_model = model;
 }
 
-void AlarmPanelController::set_view(AlarmPanelView* view)
+void AlarmPanelController::SetView(AlarmPanelView* view)
 {
-	_view = view;
+	this->_view = view;
 }
 
-void AlarmPanelController::login()
+void AlarmPanelController::Login()
 {
-	_view->print_login();
-	_view->print_logged_in(User(123,32123, "Mortadela", "Tarabaniaz"));
+	this->_view->PrintLogin();
+	this->_view->PrintLoggedIn(User(123,32123, "Mortadela", "Tarabaniaz"));
 }
 
-void AlarmPanelController::get_all_login_users()
+void AlarmPanelController::GetAllLoginUsers()
 {
-	_view->print_all_logged_in();
+	this->_view->PrintLoggedInUsers();
 }
 
-void AlarmPanelController::add_user(User user)
+void AlarmPanelController::AddUser(User user)
 {
-	if (_model->is_user_added(user))
-		_view->print_added_user_to_db(&user);
+	if (this->_model->IsUserAdded(user))
+		this->_view->PrintAddedUser(&user);
 	else
-		_view->print_fail_to_add_user(&user);
+		this->_view->PrintFailAddUser(&user);
 }
 
-void AlarmPanelController::logout(User* user)
+void AlarmPanelController::Logout(User* user)
 {
-	if (_model->logout(user))
-		_view->print_logged_out(user);
+	if (this->_model->IsLogout(user))
+		this->_view->PrintLoggedOut(user);
 }
 
-void AlarmPanelController::remove_user(User* user)
+void AlarmPanelController::RemoveUser(User* user)
 {
-	if (_model->is_user_removed(user))
-		_view->print_remove_user_from_db(user);
+	if (this->_model->IsUserRemoved(user))
+		this->_view->PrintRemoveUser(user);
 }
 
-void AlarmPanelController::temp_login(User user)
+void AlarmPanelController::TempLogin(User user)
 {
-	if (_model->login(user))
-		_view->print_logged_in(user);
+	if (this->_model->IsLogin(user))
+		this->_view->PrintLoggedIn(user);
 	else
-		_view->print_fail_to_login();
+		this->_view->PrintFailToLogin();
 }

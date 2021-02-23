@@ -8,8 +8,8 @@ protected:
 	std::string _name = "Device";
 
 public:
-	virtual std::string label() = 0;
-	virtual int Id() = 0;
-	virtual std::string Name() = 0;
+	virtual int GetId() = 0;
+	virtual std::string GetName() = 0;
+	virtual std::string GetLabel() = 0;
 };
 

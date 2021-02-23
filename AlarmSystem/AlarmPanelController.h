@@ -13,15 +13,18 @@ private:
 	 
 public:
 	AlarmPanelController(AlarmPanel*, AlarmPanelView*);
-	void get_input();
-	void get_users();
-	void set_model(AlarmPanel* model);
-	void set_view(AlarmPanelView* view);
-	void login();
-	void temp_login(User user);
-	void logout(User* user);
-	void remove_user(User* user);
-	void get_all_login_users();
-	void add_user(User user);
+
+	void GetInput();
+	void GetUsers();
+
+	void SetModel(AlarmPanel* model);
+	void SetView(AlarmPanelView* view);
+
+	void AddUser(User user);
+	void GetAllLoginUsers();
+	void Login();
+	void Logout(User* user);
+	void RemoveUser(User* user);
+	void TempLogin(User user);
 };
 

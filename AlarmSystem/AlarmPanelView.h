@@ -9,27 +9,28 @@ class AlarmPanelView : public View
 private:
 	AlarmPanelController* _controller;
 	AlarmPanel* _model;
-	void print_stress();
-	std::string print_tab();
+	void printStress();
+	std::string printTab();
 
 public:
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
-	virtual int* Id();
-	virtual std::string* Name();
+	virtual int* GetId();
+	virtual std::string* GetName();
 
-	virtual std::string label();
+	virtual std::string Label();
 
-	void print_authentication(bool);
-	void print_login();
-	void print_logged_in(User user);
-	void print_logged_out(User* user); 
-	void print_fail_to_login();
-	void print_all_logged_in();
-	void print_added_user_to_db(User* user);
-	void print_fail_to_add_user(User* user);
-	void print_remove_user_from_db(User* user);
-	void print_all_users_from_db();
-	void set_controller(AlarmPanelController* controller);
+	void SetController(AlarmPanelController* controller);
+
+	void PrintAddedUser(User* user);
+	void PrintAuthentication(bool);
+	void PrintFailAddUser(User* user);
+	void PrintFailToLogin();
+	void PrintLoggedIn(User user);
+	void PrintLoggedInUsers();
+	void PrintLoggedOut(User* user); 
+	void PrintLogin();
+	void PrintRemoveUser(User* user);
+	void PrintUsers();
 };
 

@@ -1,21 +1,21 @@
 #include "User.h"
 
-int User::id()
+int User::GetId()
 {
 	return _id;
 }
 
-int User::pin()
+int User::GetPin()
 {
 	return _pin;
 }
 
-std::string User::name()
+std::string User::GetName()
 {
 	return _name;
 }
 
-std::string User::surname()
+std::string User::GetSurname()
 {
 	return _surname;
 }
@@ -28,7 +28,7 @@ User::User(int id, int pin, std::string name, std:: string surname)
 	_surname = surname;
 }
 
-std::string User::introduce()
+std::string User::Introduce()
 {
 	return _name + " " + _surname;
 }

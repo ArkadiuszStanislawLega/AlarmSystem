@@ -11,8 +11,8 @@ int main()
     AlarmPanelView av(&ap, 1, "Pierwszy panel");
     AlarmPanelController apc(&ap, &av);
 
-    apc.login();
-    apc.get_all_login_users();
+    apc.Login();
+    apc.GetAllLoginUsers();
 
     User users[3];
 
@@ -24,16 +24,16 @@ int main()
 
     for (size_t i = 0; i < users_size; i++)
     {
-        apc.add_user(users[i]);
-        apc.temp_login(users[i]);
+        apc.AddUser(users[i]);
+        apc.TempLogin(users[i]);
     }
 
-    apc.remove_user(&users[0]);
-    apc.get_users();
-    apc.remove_user(&users[2]);
+    apc.RemoveUser(&users[0]);
+    apc.GetUsers();
+    apc.RemoveUser(&users[2]);
     
-    apc.get_users();
-    apc.get_all_login_users();
+    apc.GetUsers();
+    apc.GetAllLoginUsers();
 
     //Device* d;
     //d = &ap;

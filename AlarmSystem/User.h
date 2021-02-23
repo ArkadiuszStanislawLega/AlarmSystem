@@ -9,13 +9,14 @@ private:
 	std::string _name;
 	std::string _surname;
 
-
 public:
 	User(int= 0, int = 0, std::string = "Name", std::string = "Surname");
-	std::string introduce();
-	int id();
-	int pin();
-	std::string name();
-	std::string surname();
+
+	int GetId();
+	int GetPin();
+
+	std::string GetName();
+	std::string GetSurname();
+	std::string Introduce();
 };
 

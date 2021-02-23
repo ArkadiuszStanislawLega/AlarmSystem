@@ -1,22 +1,13 @@
 #include "AlarmPanelView.h"
 
-int* AlarmPanelView::Id()
-{
-	return &_id;
-}
-
-std::string* AlarmPanelView::Name()
-{
-	return &_name;
-}
-
 AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
 {	
-	_id = id;
-	_name = name;
-	_model = model;
+	this->_id = id;
+	this->_name = name;
+	this->_model = model;
 }
-void AlarmPanelView::print_stress()
+
+void AlarmPanelView::printStress()
 {
 	for (size_t i = 0; i < 80; i++)
 	{
@@ -26,7 +17,37 @@ void AlarmPanelView::print_stress()
 	std::cout << std::endl;
 }
 
-void AlarmPanelView::print_authentication(bool authenticated)
+std::string AlarmPanelView::printTab()
+{
+	std::string tab;
+	for (size_t i = 0; i < this->_name.length() + 2; i++)
+	{
+		tab += " ";
+	}
+	return tab;
+}
+
+int* AlarmPanelView::GetId()
+{
+	return &this->_id;
+}
+
+std::string* AlarmPanelView::GetName()
+{
+	return &this->_name;
+}
+
+void AlarmPanelView::SetController(AlarmPanelController* controller)
+{
+	this->_controller = controller;
+}
+
+void AlarmPanelView::PrintAddedUser(User* user)
+{
+	std::cout << Label() << "Dodano uzytkownika " << user->Introduce() << "  do bazy danych." << std::endl;
+}
+
+void AlarmPanelView::PrintAuthentication(bool authenticated)
 {
 	if (authenticated)
 		std::cout << "Zalogowany" << std::endl;
@@ -34,80 +55,61 @@ void AlarmPanelView::print_authentication(bool authenticated)
 		std::cout << "Nie zalogowany" << std::endl;
 }
 
-std::string AlarmPanelView::label()
+std::string AlarmPanelView::Label()
 {
-	return _name  + "> ";
+	return this->_name  + "> ";
 }
 
-void AlarmPanelView::print_login()
+void AlarmPanelView::PrintLogin()
 {
 	std::cout << "Podaj numer ID, a nastepnie pin." << std::endl;
 }
 
-void AlarmPanelView::print_logged_in(User user)
+void AlarmPanelView::PrintLoggedIn(User user)
 {
-	std::cout << "Witaj " << user.name() << std::endl;
+	std::cout << "Witaj " << user.GetName() << std::endl;
 }
 
-void AlarmPanelView::print_logged_out(User* user)
+void AlarmPanelView::PrintLoggedOut(User* user)
 {
-	std::cout << "Wylogowano " << user->introduce() << std::endl;
+	std::cout << "Wylogowano " << user->Introduce() << std::endl;
 }
 
-void AlarmPanelView::set_controller(AlarmPanelController* controller)
+void AlarmPanelView::PrintLoggedInUsers()
 {
-	_controller = controller;
-}
+	std::cout << Label() << "Aktualnie zalogowani uzytkownicy(" << this->_model->LoggedUsersCounter() << "): "<< std::endl;
 
-void AlarmPanelView::print_all_logged_in()
-{
-	std::cout << label() << "Aktualnie zalogowani uzytkownicy(" << _model->users_logged_in() << "): "<< std::endl;
-
-	for (size_t i = 0; i < (size_t)_model->users_logged_in(); i++)
+	for (size_t i = 0; i < (size_t)this->_model->LoggedUsersCounter(); i++)
 	{
-		std::cout <<print_tab() << _model->get_logged_in_users()[i].id() << ". " << _model->get_logged_in_users()[i].introduce() << std::endl;
+		std::cout << printTab() << this->_model->GetLoggedUsers()[i].GetId() << ". " << this->_model->GetLoggedUsers()[i].Introduce() << std::endl;
 	}
 }
 
-void AlarmPanelView::print_added_user_to_db(User* user)
+void AlarmPanelView::PrintFailAddUser(User* user)
 {
-	std::cout << label() << "Dodano uzytkownika " << user->introduce() << "  do bazy danych." << std::endl;
+	std::cout << Label() << "Blad podczas dodawa uzytkownika " << user->Introduce() << std::endl;
 }
 
-void AlarmPanelView::print_fail_to_add_user(User* user)
+void AlarmPanelView::PrintRemoveUser(User* user)
 {
-	std::cout << label() << "Blad podczas dodawa uzytkownika " << user->introduce() << std::endl;
+	std::cout << Label() << "Usunieto uzytkownika " << user->Introduce() << "." << std::endl;
 }
 
-void AlarmPanelView::print_remove_user_from_db(User* user)
+void AlarmPanelView::PrintUsers()
 {
-	std::cout << label() << "Usunieto uzytkownika " << user->introduce() << "." << std::endl;
-}
-
-
-void AlarmPanelView::print_all_users_from_db()
-{
-	std::cout << label() << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
-	User* pointer = _model->get_users();
-	for (size_t i = 0; i < (size_t)_model->users_couter_in_db(); i++)
+	std::cout << Label() << "Uzytkownicy w bazie danych(" << this->_model->UsersCounter() << "):" << std::endl;
+	User* pointer = this->_model->GetUsers();
+	for (size_t i = 0; i < (size_t)this->_model->UsersCounter(); i++)
 	{
-		std::cout << print_tab() << pointer->id() << ". " << pointer->introduce() << std::endl;
+		std::cout << printTab() << pointer->GetId() << ". " << pointer->Introduce() << std::endl;
 		pointer++;
 	}
 }
 
-void AlarmPanelView::print_fail_to_login()
+void AlarmPanelView::PrintFailToLogin()
 {
-	std::cout << label() << "Bledne dane logowania." << std::endl;
+	std::cout << Label() << "Bledne dane logowania." << std::endl;
 }
 
-std::string AlarmPanelView::print_tab()
-{
-	std::string tab;
-	for (size_t i = 0; i < _name.length()+2; i++)
-	{
-		tab += " ";
-	}
-	return tab;
-}
+
 

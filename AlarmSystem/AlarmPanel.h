@@ -8,30 +8,31 @@ class AlarmPanel : public Device
 private:
 	const static int MAX_AUTHORIZED_USERS = 10;
 
-	User _users_database[MAX_AUTHORIZED_USERS];
-	User _currently_logged_in[MAX_AUTHORIZED_USERS];
-	int _users_counter_in_db{ 0 };
-	int _users_logged_in{ 0 };
+	User _users[MAX_AUTHORIZED_USERS];
+	User _loggedUsers[MAX_AUTHORIZED_USERS];
 
-	void sort_users();
+	int _usersCounter{ 0 };
+	int _loggedUsersCounter{ 0 };
 
 public:
 	AlarmPanel(int = 0, std::string = "AlarmPanel");
-	int users_logged_in();
-	int users_couter_in_db();
 
-	bool is_authenticate_user(User* user);
-	bool is_user_added(User user);
-	bool is_user_removed(User* user);
-	bool is_user_currently_logged_in(User* user);
-	bool login(User user);
-	bool logout(User* user);
+	int UsersCounter();
+	int LoggedUsersCounter();
 
-	User* get_logged_in_users();
-	User* get_users();
+	bool IsUserAuthenticated(User* user);
+	bool IsUserAdded(User user);
+	bool IsUserRemoved(User* user);
+	bool IsUserLoggedIn(User* user);
+	bool IsLogin(User user);
+	bool IsLogout(User* user);
 
-	virtual std::string label();
-	virtual int Id();
-	virtual std::string Name();
+	User* GetUsers();
+	User* GetLoggedUsers();
+
+	virtual int GetId();
+
+	virtual std::string GetLabel();
+	virtual std::string GetName();
 };
 
