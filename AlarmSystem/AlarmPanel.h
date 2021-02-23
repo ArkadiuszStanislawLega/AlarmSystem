@@ -30,8 +30,8 @@ public:
 	User* get_logged_in_users();
 	User* get_users();
 
-	virtual std::string Device::label();
-	virtual int Device::Id();
-	virtual std::string Device::Name();
+	virtual std::string label();
+	virtual int Id();
+	virtual std::string Name();
 };
 

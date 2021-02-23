@@ -15,10 +15,10 @@ private:
 public:
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
-	virtual int* View::Id();
-	virtual std::string* View::Name();
+	virtual int* Id();
+	virtual std::string* Name();
 
-	virtual std::string View::label();
+	virtual std::string label();
 
 	void print_authentication(bool);
 	void print_login();
