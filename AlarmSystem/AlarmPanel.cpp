@@ -108,21 +108,16 @@ bool AlarmPanel::logout(User* user)
 
 bool AlarmPanel::is_user_removed(User* user)
 {
-	if (is_authenticate_user(user))
+	//TODO: Make authentication of user whom user this function.
+	logout(user);
+	for (size_t i = 0; i < _users_counter_in_db; i++)
 	{
-		if (is_user_currently_logged_in(user))
+		if (_users_database[i].id() == user->id())
 		{
-			logout(user);
-			for (size_t i = 0; i < _users_counter_in_db; i++)
-			{
-				if(_users_database[i].id() == user->id())
-				{
-					_users_counter_in_db--;
-					_users_database[i] = _users_database[_users_counter_in_db];
-					_users_database[_users_counter_in_db] = NULL;
-					return true;
-				}
-			}
+			_users_counter_in_db--;
+			_users_database[i] = _users_database[_users_counter_in_db];
+			_users_database[_users_counter_in_db] = NULL;
+			return true;
 		}
 	}
 	return false;
