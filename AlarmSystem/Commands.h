@@ -1,0 +1,1 @@
+enum Commands{start, status, help, ex};

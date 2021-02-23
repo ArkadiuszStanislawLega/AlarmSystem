@@ -4,6 +4,7 @@ Port::Port(int id, std::string name)
 {
     this->_id = id;
     this->_name = name;
+    this->_isConnected = false;
 }
 
 int Port::GetId()
@@ -18,7 +19,7 @@ std::string Port::GetName()
 
 std::string Port::GetLabel()
 {
-    return this->_id + " " + this->_name;
+    return "" + this->_id;
 }
 
 bool Port::IsConnected()
@@ -26,7 +27,15 @@ bool Port::IsConnected()
     return this->_isConnected;
 }
 
-MainConsole* Port::GetParent()
+Device* Port::GetParent()
 {
     return this->_parent;
+}
+
+std::string Port::GetStatus()
+{
+    if (this->_isConnected) 
+        return GetLabel() + " polaczony" + this->_parent->GetLabel();
+    else
+        return GetLabel() + " rozlaczony";
 }

@@ -1,8 +1,8 @@
 #pragma once
+#include <iostream>
 #include "Device.h"
 #include "User.h"
 #include "Port.h"
-#include <iostream>
 
 class AlarmPanel : public Device
 {

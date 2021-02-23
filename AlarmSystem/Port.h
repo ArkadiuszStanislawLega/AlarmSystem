@@ -2,11 +2,12 @@
 #include "Device.h"
 
 class MainConsole;
+class AlarmPanel;
 class Port : public Device
 {
 private:
     bool _isConnected;
-    MainConsole* _parent;
+    Device* _parent;
 
 public:
     Port(int=0, std::string="Port");
@@ -15,5 +16,6 @@ public:
     virtual std::string GetLabel();
 
     bool IsConnected();
-    MainConsole* GetParent();
+    Device* GetParent();
+    std::string GetStatus();
 };
