@@ -26,10 +26,12 @@ void AlarmPanelController::SetView(AlarmPanelView* view)
 	this->_view = view;
 }
 
-void AlarmPanelController::Login()
+void AlarmPanelController::AddUser(User user)
 {
-	this->_view->PrintLogin();
-	this->_view->PrintLoggedIn(User(123,32123, "Mortadela", "Tarabaniaz"));
+	if (this->_model->IsUserAdded(user))
+		this->_view->PrintAddedUser(&user);
+	else
+		this->_view->PrintFailAddUser(&user);
 }
 
 void AlarmPanelController::GetAllLoginUsers()
@@ -37,12 +39,10 @@ void AlarmPanelController::GetAllLoginUsers()
 	this->_view->PrintLoggedInUsers();
 }
 
-void AlarmPanelController::AddUser(User user)
+void AlarmPanelController::Login()
 {
-	if (this->_model->IsUserAdded(user))
-		this->_view->PrintAddedUser(&user);
-	else
-		this->_view->PrintFailAddUser(&user);
+	this->_view->PrintLogin();
+	this->_view->PrintLoggedIn(User(123,32123, "Mortadela", "Tarabaniaz"));
 }
 
 void AlarmPanelController::Logout(User* user)

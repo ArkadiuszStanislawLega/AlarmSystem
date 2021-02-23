@@ -37,6 +37,11 @@ std::string* AlarmPanelView::GetName()
 	return &this->_name;
 }
 
+std::string AlarmPanelView::Label()
+{
+	return this->_name  + "> ";
+}
+
 void AlarmPanelView::SetController(AlarmPanelController* controller)
 {
 	this->_controller = controller;
@@ -55,24 +60,19 @@ void AlarmPanelView::PrintAuthentication(bool authenticated)
 		std::cout << "Nie zalogowany" << std::endl;
 }
 
-std::string AlarmPanelView::Label()
+void AlarmPanelView::PrintFailAddUser(User* user)
 {
-	return this->_name  + "> ";
+	std::cout << Label() << "Blad podczas dodawa uzytkownika " << user->Introduce() << std::endl;
 }
 
-void AlarmPanelView::PrintLogin()
+void AlarmPanelView::PrintFailToLogin()
 {
-	std::cout << "Podaj numer ID, a nastepnie pin." << std::endl;
+	std::cout << Label() << "Bledne dane logowania." << std::endl;
 }
 
 void AlarmPanelView::PrintLoggedIn(User user)
 {
 	std::cout << "Witaj " << user.GetName() << std::endl;
-}
-
-void AlarmPanelView::PrintLoggedOut(User* user)
-{
-	std::cout << "Wylogowano " << user->Introduce() << std::endl;
 }
 
 void AlarmPanelView::PrintLoggedInUsers()
@@ -85,9 +85,14 @@ void AlarmPanelView::PrintLoggedInUsers()
 	}
 }
 
-void AlarmPanelView::PrintFailAddUser(User* user)
+void AlarmPanelView::PrintLoggedOut(User* user)
 {
-	std::cout << Label() << "Blad podczas dodawa uzytkownika " << user->Introduce() << std::endl;
+	std::cout << "Wylogowano " << user->Introduce() << std::endl;
+}
+
+void AlarmPanelView::PrintLogin()
+{
+	std::cout << "Podaj numer ID, a nastepnie pin." << std::endl;
 }
 
 void AlarmPanelView::PrintRemoveUser(User* user)
@@ -106,10 +111,6 @@ void AlarmPanelView::PrintUsers()
 	}
 }
 
-void AlarmPanelView::PrintFailToLogin()
-{
-	std::cout << Label() << "Bledne dane logowania." << std::endl;
-}
 
 
 
