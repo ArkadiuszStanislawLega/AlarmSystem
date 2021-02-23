@@ -77,9 +77,9 @@ void AlarmPanelView::PrintLoggedIn(User user)
 
 void AlarmPanelView::PrintLoggedInUsers()
 {
-	std::cout << Label() << "Aktualnie zalogowani uzytkownicy(" << this->_model->LoggedUsersCounter() << "): "<< std::endl;
+	std::cout << Label() << "Aktualnie zalogowani uzytkownicy(" << this->_model->GetLoggedUsersCounter() << "): "<< std::endl;
 
-	for (size_t i = 0; i < (size_t)this->_model->LoggedUsersCounter(); i++)
+	for (size_t i = 0; i < (size_t)this->_model->GetLoggedUsersCounter(); i++)
 	{
 		std::cout << printTab() << this->_model->GetLoggedUsers()[i].GetId() << ". " << this->_model->GetLoggedUsers()[i].Introduce() << std::endl;
 	}
@@ -102,9 +102,9 @@ void AlarmPanelView::PrintRemoveUser(User* user)
 
 void AlarmPanelView::PrintUsers()
 {
-	std::cout << Label() << "Uzytkownicy w bazie danych(" << this->_model->UsersCounter() << "):" << std::endl;
+	std::cout << Label() << "Uzytkownicy w bazie danych(" << this->_model->GetUsersCounter() << "):" << std::endl;
 	User* pointer = this->_model->GetUsers();
-	for (size_t i = 0; i < (size_t)this->_model->UsersCounter(); i++)
+	for (size_t i = 0; i < (size_t)this->_model->GetUsersCounter(); i++)
 	{
 		std::cout << printTab() << pointer->GetId() << ". " << pointer->Introduce() << std::endl;
 		pointer++;

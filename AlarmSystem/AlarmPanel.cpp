@@ -9,7 +9,7 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 	 this->_name = name;
 }
 
-int AlarmPanel::UsersCounter()
+int AlarmPanel::GetUsersCounter()
 {
 	return this->_usersCounter;
 }
@@ -24,7 +24,6 @@ bool AlarmPanel::IsLogin(User user)
 	}
 
 	return false;
-
 }
 
 int AlarmPanel::GetId()
@@ -47,7 +46,7 @@ User* AlarmPanel::GetLoggedUsers()
 	return  this->_loggedUsers;
 }
 
-int AlarmPanel::LoggedUsersCounter()
+int AlarmPanel::GetLoggedUsersCounter()
 {
 	return  this->_loggedUsersCounter;
 }

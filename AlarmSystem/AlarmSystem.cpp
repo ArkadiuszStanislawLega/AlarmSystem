@@ -34,8 +34,4 @@ int main()
     
     apc.GetUsers();
     apc.GetAllLoginUsers();
-
-    //Device* d;
-    //d = &ap;
-    //d->introduce();
 }
