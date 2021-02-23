@@ -89,11 +89,16 @@ void AlarmPanelView::print_all_users_from_db()
 {
 	std::cout << label() << "Uzytkownicy w bazie danych(" << _model->users_couter_in_db() << "):" << std::endl;
 	User* pointer = _model->get_users();
-	for (size_t i = 0; i < _model->users_couter_in_db(); i++)
+	for (size_t i = 0; i < (size_t)_model->users_couter_in_db(); i++)
 	{
 		std::cout << print_tab() << pointer->id() << ". " << pointer->introduce() << std::endl;
 		pointer++;
 	}
+}
+
+void AlarmPanelView::print_fail_to_login()
+{
+	std::cout << label() << "Bledne dane logowania." << std::endl;
 }
 
 std::string AlarmPanelView::print_tab()
@@ -105,3 +110,4 @@ std::string AlarmPanelView::print_tab()
 	}
 	return tab;
 }
+

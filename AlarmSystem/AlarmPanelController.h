@@ -18,6 +18,7 @@ public:
 	void set_model(AlarmPanel* model);
 	void set_view(AlarmPanelView* view);
 	void login();
+	void temp_login(User user);
 	void logout(User* user);
 	void remove_user(User* user);
 	void get_all_login_users();

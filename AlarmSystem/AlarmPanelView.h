@@ -24,6 +24,7 @@ public:
 	void print_login();
 	void print_logged_in(User user);
 	void print_logged_out(User* user); 
+	void print_fail_to_login();
 	void print_all_logged_in();
 	void print_added_user_to_db(User* user);
 	void print_fail_to_add_user(User* user);

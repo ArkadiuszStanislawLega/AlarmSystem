@@ -59,7 +59,7 @@ std::string AlarmPanel::label()
 
 bool AlarmPanel::is_authenticate_user(User* user)
 {
-	for (size_t i = 0; i < _users_counter_in_db; i++)
+	for (size_t i = 0; i < (size_t)_users_counter_in_db; i++)
 	{
 		if (user->id() == _users_database[i].id())
 			return true;
@@ -81,7 +81,7 @@ bool AlarmPanel::is_user_added(User user)
 
 bool AlarmPanel::is_user_currently_logged_in(User* user)
 {
-	for (size_t i = 0; i < _users_logged_in; i++)
+	for (size_t i = 0; i < (size_t)_users_logged_in; i++)
 	{
 		if (_currently_logged_in[i].id() == user->id())
 			return true;
@@ -92,7 +92,7 @@ bool AlarmPanel::is_user_currently_logged_in(User* user)
 
 bool AlarmPanel::logout(User* user)
 {
-	for (size_t i = 0; i < _users_logged_in; i++)
+	for (size_t i = 0; i < (size_t)_users_logged_in; i++)
 	{
 		if (_currently_logged_in[i].id() == user->id())
 		{
@@ -110,7 +110,7 @@ bool AlarmPanel::is_user_removed(User* user)
 {
 	//TODO: Make authentication of user whom user this function.
 	logout(user);
-	for (size_t i = 0; i < _users_counter_in_db; i++)
+	for (size_t i = 0; i < (size_t)_users_counter_in_db; i++)
 	{
 		if (_users_database[i].id() == user->id())
 		{

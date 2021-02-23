@@ -25,6 +25,7 @@ int main()
     for (size_t i = 0; i < users_size; i++)
     {
         apc.add_user(users[i]);
+        apc.temp_login(users[i]);
     }
 
     apc.remove_user(&users[0]);

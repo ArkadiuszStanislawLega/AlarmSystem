@@ -56,3 +56,11 @@ void AlarmPanelController::remove_user(User* user)
 	if (_model->is_user_removed(user))
 		_view->print_remove_user_from_db(user);
 }
+
+void AlarmPanelController::temp_login(User user)
+{
+	if (_model->login(user))
+		_view->print_logged_in(user);
+	else
+		_view->print_fail_to_login();
+}
