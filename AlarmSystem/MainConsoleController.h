@@ -17,6 +17,7 @@ private:
 
 public:
 	MainConsoleController();
+	virtual ~MainConsoleController();
 	void CheckInput();
 	void MainLoop();
 	void ConvertInput();

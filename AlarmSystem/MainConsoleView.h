@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
+#include "Port.h"
 
-class Port;
 class MainConsoleView
 {
 
 public:
 	void PrintWelcome();
 	void PrintHelp();
-	void PrintPortStatus(Port* ports);
+	void PrintPortStatus(Port*);
 };
 

@@ -1,7 +1,4 @@
-#include <string>
 #include "Port.h"
-
-using std::to_string;
 
 int Port::_deviceCounter = 1;
 
@@ -13,7 +10,6 @@ Port::Port(int id, std::string name)
     this->_deviceCounter++;
 }
 
-
 Port::Port(Device* parent, int id, std::string name)
 {
     this->_id = id == 0 ? this->_deviceCounter : id;
@@ -22,6 +18,11 @@ Port::Port(Device* parent, int id, std::string name)
     this->_parent = parent;
     this->_deviceCounter++;
 }
+
+Port::~Port()
+{
+
+};
 
 int Port::GetId()
 {

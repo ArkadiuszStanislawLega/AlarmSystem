@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Commands.h"
 #include "AlarmPanel.h"
@@ -20,8 +21,7 @@ public:
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();
-    Port* GetPorts();
-    void PortsStatus();
-    void Create(int, std::string);
-    void Connect();
+    // Port* GetPorts();
+    // void Create(int, std::string);
+    // void Connect();
 };

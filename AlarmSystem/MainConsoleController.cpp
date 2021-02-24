@@ -8,6 +8,11 @@ MainConsoleController::MainConsoleController()
     MainLoop();
 }
 
+MainConsoleController::~MainConsoleController()
+{
+
+};
+
 void MainConsoleController::CheckInput()
 {
     std::cin >> this->_currentCommand;
@@ -16,7 +21,8 @@ void MainConsoleController::CheckInput()
 void MainConsoleController::MainLoop()
 {
     this->_view.PrintWelcome();
-    this->_view.PrintPortStatus(this->_model.GetPorts());
+    // Port* pointer = this->_model.GetPorts();
+    // this->_view.PrintPortStatus(pointer);
 
     while (this->_isWorking)
     {
@@ -25,7 +31,6 @@ void MainConsoleController::MainLoop()
         MakeCommand();
     }
 }
-
 
 void MainConsoleController::ConvertInput()
 {
@@ -58,15 +63,15 @@ void MainConsoleController::MakeCommand()
         break;
 
     case status:
-        this->_model.PortsStatus();
+        // this->_model.PortsStatus();
         break;
 
     case connect:
-        this->_model.Connect();
-        break;
+        // this->_model.Connect();
+        break; 
 
     case create:
-        this->_model.Create(1, "alarm panel");
+        // this->_model.Create(1, "alarm panel");
         break;
 
     default:

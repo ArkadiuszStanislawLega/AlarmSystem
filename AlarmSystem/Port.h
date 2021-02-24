@@ -1,5 +1,9 @@
+#pragma once
 #include <iostream>
+#include <string>
 #include "Device.h"
+
+using std::to_string;
 
 class Port : public Device
 {
@@ -12,6 +16,7 @@ private:
 public:
     Port(int = 0, std::string = "Port");
     Port(Device* parent, int=0, std::string="Port");
+    virtual ~Port();
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();

@@ -13,6 +13,7 @@ private:
 	 
 public:
 	AlarmPanelController(int=0, std::string = "");
+	virtual ~AlarmPanelController();
 
 	void GetInput();
 	void GetUsers();

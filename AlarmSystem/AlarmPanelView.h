@@ -15,6 +15,7 @@ private:
 public:
 	AlarmPanelView(int = 0, std::string = "Alarm Panel View");
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
+	virtual ~AlarmPanelView();
 
 	virtual int* GetId();
 	virtual std::string* GetName();
