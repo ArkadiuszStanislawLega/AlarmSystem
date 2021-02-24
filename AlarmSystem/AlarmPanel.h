@@ -32,7 +32,7 @@ public:
 	User* GetUsers();
 	User* GetLoggedUsers();
 
-	Port GetPort();
+	Port* GetPort();
 	
 	bool IsOn();
 

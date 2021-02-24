@@ -1,16 +1,17 @@
 #include <iostream>
 #include "Device.h"
 
-class MainConsole;
-class AlarmPanel;
 class Port : public Device
 {
 private:
+    static int _deviceCounter;
     bool _isConnected;
     Device* _parent;
+    Port* _connectedPort;
 
 public:
-    Port(int=0, std::string="Port");
+    Port(int = 0, std::string = "Port");
+    Port(Device* parent, int=0, std::string="Port");
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();
@@ -18,4 +19,8 @@ public:
     bool IsConnected();
     Device* GetParent();
     std::string GetStatus();
+
+    void SetParent(Device* device);
+    void Connect(Port* port);
+    void Disconnect();
 };

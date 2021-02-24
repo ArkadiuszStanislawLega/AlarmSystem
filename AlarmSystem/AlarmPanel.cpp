@@ -7,6 +7,7 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 {
 	 this->_id = id;
 	 this->_name = name;
+	 this->_port = Port(this, 0, "Port - Alarm Panel " + this->_id);
 }
 
 int AlarmPanel::GetUsersCounter()
@@ -39,6 +40,16 @@ std::string AlarmPanel::GetName()
 User* AlarmPanel::GetUsers()
 {
 	return this->_users;
+}
+
+Port* AlarmPanel::GetPort()
+{
+	return &this->_port;
+}
+
+bool AlarmPanel::IsOn()
+{
+	return this->_isOn;
 }
 
 User* AlarmPanel::GetLoggedUsers()
