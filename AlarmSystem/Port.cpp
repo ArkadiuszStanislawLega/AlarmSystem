@@ -1,11 +1,13 @@
+#include <string>
 #include "Port.h"
 
+using std::to_string;
 
-int Port::_deviceCounter = 0;
+int Port::_deviceCounter = 1;
 
 Port::Port(int id, std::string name)
 {
-    this->_id = id;
+    this->_id = id == 0 ? this->_deviceCounter : id;
     this->_name = name;
     this->_isConnected = false;
     this->_deviceCounter++;
@@ -33,7 +35,7 @@ std::string Port::GetName()
 
 std::string Port::GetLabel()
 {
-    return "" + this->_id;
+    return to_string(this->_id);
 }
 
 bool Port::IsConnected()

@@ -4,11 +4,11 @@
 // #include "AlarmPanelController.h"
 // #include "AlarmPanel.h"
 // #include "AlarmPanelView.h"
-#include "MainConsole.h"
+#include "MainConsoleController.h"
 
 int main()
 {
-    MainConsole();
+    MainConsoleController mainLoop = MainConsoleController();
     // AlarmPanel ap(1, "Panel Alarmowy milion");
     // AlarmPanelView av(&ap, 1, "Pierwszy panel");
     // AlarmPanelController apc(&ap, &av);

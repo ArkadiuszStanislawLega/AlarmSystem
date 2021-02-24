@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Commands.h"
 #include "AlarmPanel.h"
+#include "AlarmPanelView.h"
+#include "AlarmPanelController.h"
 
 class MainConsole : public Device
 {
@@ -11,21 +13,7 @@ private:
     int _alarmPanelCounter;
 
     Port _ports[MAX_NUMBER_OF_PORTS];
-    AlarmPanel _alarmPanels[MAX_NUMBER_OF_DEVICES];
-
-    std::string _currentCommand;
-    Commands _command;
-
-    bool _isWorking;
-
-    void CheckInput();
-    void ConvertInput();
-    void MakeCommand();
-    void PrintHelp();
-    void PrintWelcome();
-    void PortsStatus();
-    void Create();
-    void Connect();
+    AlarmPanelController _alarmPanelControllers[MAX_NUMBER_OF_DEVICES];
 
 public:
     MainConsole();
@@ -33,4 +21,7 @@ public:
     virtual std::string GetName();
     virtual std::string GetLabel();
     Port* GetPorts();
+    void PortsStatus();
+    void Create(int, std::string);
+    void Connect();
 };

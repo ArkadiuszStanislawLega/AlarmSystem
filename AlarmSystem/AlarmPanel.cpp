@@ -7,7 +7,7 @@ AlarmPanel::AlarmPanel(int id, std::string name)
 {
 	 this->_id = id;
 	 this->_name = name;
-	 this->_port = Port(this, 0, "Port - Alarm Panel " + this->_id);
+	 this->_port = Port(this, 0, "Port - Alarm Panel " + to_string(this->_id));
 }
 
 int AlarmPanel::GetUsersCounter()

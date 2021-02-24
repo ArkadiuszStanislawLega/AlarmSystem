@@ -145,6 +145,8 @@
     <ClCompile Include="AlarmSystem.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="MainConsole.cpp" />
+    <ClCompile Include="MainConsoleController.cpp" />
+    <ClCompile Include="MainConsoleView.cpp" />
     <ClCompile Include="Port.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="View.cpp" />
@@ -156,6 +158,8 @@
     <ClInclude Include="Commands.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="MainConsole.h" />
+    <ClInclude Include="MainConsoleController.h" />
+    <ClInclude Include="MainConsoleView.h" />
     <ClInclude Include="Port.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="View.h" />

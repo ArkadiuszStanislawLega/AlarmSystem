@@ -51,6 +51,12 @@
     <ClCompile Include="Port.cpp">
       <Filter>Pliki źródłowe\Models</Filter>
     </ClCompile>
+    <ClCompile Include="MainConsoleView.cpp">
+      <Filter>Pliki źródłowe\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MainConsoleController.cpp">
+      <Filter>Pliki źródłowe\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h">
@@ -78,6 +84,12 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Port.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="MainConsoleController.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="MainConsoleView.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

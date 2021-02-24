@@ -1,5 +1,12 @@
 #include "AlarmPanelView.h"
 
+
+AlarmPanelView::AlarmPanelView(int id, std::string name)
+{
+	this->_id = id;
+	this->_name = name;
+
+}
 AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
 {	
 	this->_id = id;
@@ -110,7 +117,11 @@ void AlarmPanelView::PrintUsers()
 		pointer++;
 	}
 }
-
+ 
+void AlarmPanelView::PrintConnectPort(Port* port)
+{
+	std::cout << Label() << "Polaczono port " << this->_model->GetPort()->GetLabel() << "->" << port->GetLabel() << std::endl;
+}
 
 
 

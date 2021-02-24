@@ -13,6 +13,7 @@ private:
 	std::string printTab();
 
 public:
+	AlarmPanelView(int = 0, std::string = "Alarm Panel View");
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
 	virtual int* GetId();
@@ -32,5 +33,6 @@ public:
 	void PrintLogin();
 	void PrintRemoveUser(User* user);
 	void PrintUsers();
+	void PrintConnectPort(Port* port);
 };
 
