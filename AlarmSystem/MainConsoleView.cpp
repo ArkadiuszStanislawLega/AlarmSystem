@@ -1,6 +1,5 @@
 #include "MainConsoleView.h"
 
-
 void MainConsoleView::PrintHelp()
 {
     std::cout << "help - pomoc dotyczaca polecen" << std::endl;
@@ -17,11 +16,10 @@ void MainConsoleView::PrintWelcome()
 
 void MainConsoleView::PrintPortStatus( Port* ports)
 {
-
     for (size_t i = 0; ; i++)
     {
-        if(ports == 0) break;
-        std::cout << ports << std::endl;
+        if(ports == nullptr) break;
+        std::cout << ports->GetStatus() << std::endl;
         ports++;
     }
 }

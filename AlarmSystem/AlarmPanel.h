@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ALARM_PANEL_H
+#define ALARM_PANEL_H
 #include <iostream>
 #include "Device.h"
 #include "User.h"
@@ -44,4 +46,4 @@ public:
 	bool IsLogout(User* user);
 	bool IsConnectPort();
 };
-
+#endif

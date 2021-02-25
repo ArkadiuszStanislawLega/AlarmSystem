@@ -63,7 +63,7 @@ void MainConsoleController::MakeCommand()
         break;
 
     case status:
-        // this->_model.PortsStatus();
+        this->_view.PrintPortStatus(this->_model.GetPorts());
         break;
 
     case connect:

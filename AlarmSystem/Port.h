@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PORT_H
+#define PORT_H
 #include <iostream>
 #include <string>
 #include "Device.h"
@@ -29,3 +31,4 @@ public:
     void Connect(Port* port);
     void Disconnect();
 };
+#endif

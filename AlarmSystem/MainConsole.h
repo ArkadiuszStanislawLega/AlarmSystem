@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MAIN_CONSOLE_H
+#define MAIN_CONSOLE_H
 #include <iostream>
 #include "Commands.h"
 #include "AlarmPanel.h"
@@ -21,7 +23,8 @@ public:
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();
-    // Port* GetPorts();
+     Port* GetPorts();
     // void Create(int, std::string);
     // void Connect();
 };
+#endif

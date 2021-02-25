@@ -20,10 +20,10 @@ std::string MainConsole::GetLabel()
     return this->_id + " " + this->_name; 
 }
 
-// Port* MainConsole::GetPorts()
-// {
-//     return this->_ports;
-// }
+ Port* MainConsole::GetPorts()
+ {
+     return this->_ports;
+ }
 
 // void MainConsole::Create(int id, std::string name)
 // {
