@@ -14,10 +14,6 @@ AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
 	this->_model = model;
 }
 
-AlarmPanel::~AlarmPanel()
-{
-
-};
 
 void AlarmPanelView::printStress()
 {

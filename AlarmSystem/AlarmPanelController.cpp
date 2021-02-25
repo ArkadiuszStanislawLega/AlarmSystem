@@ -16,11 +16,6 @@ void AlarmPanelController::GetUsers()
 	this->_view.PrintUsers();
 }
 
-AlarmPanelController::~AlarmPanelController()
-{
-
-};
-
 
 void AlarmPanelController::AddUser(User user)
 {

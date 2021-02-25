@@ -19,8 +19,8 @@ private:
 	
 
 public:
-	MainConsoleController() = default;
-	virtual ~MainConsoleController() = default;
+	MainConsoleController();
+	virtual ~MainConsoleController();
 	void CheckInput();
 	void MainLoop();
 	void ConvertInput();

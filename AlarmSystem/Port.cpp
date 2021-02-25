@@ -14,15 +14,10 @@ Port::Port(Device* parent, int id, std::string name)
 {
     this->_id = id == 0 ? this->_deviceCounter : id;
     this->_name = name;
-    this->_isConnected = false;
+    this->_isConnected = {false};
     this->_parent = parent;
     this->_deviceCounter++;
 }
-
-Port::~Port()
-{
-
-};
 
 int Port::GetId()
 {
