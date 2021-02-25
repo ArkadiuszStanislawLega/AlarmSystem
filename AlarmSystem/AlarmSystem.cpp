@@ -3,7 +3,9 @@
 
 #include "AlarmSystem.h"
 
+
 int main()
 {
-    MainConsoleController();
+    MainConsoleController m = MainConsoleController();
+    return 0;
 }

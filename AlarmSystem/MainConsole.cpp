@@ -5,6 +5,11 @@ MainConsole::MainConsole()
     this->_alarmPanelCounter = { 0 };
 }
 
+MainConsole::~MainConsole()
+{
+
+};
+
 int MainConsole::GetId()
 {
     return this->_id;

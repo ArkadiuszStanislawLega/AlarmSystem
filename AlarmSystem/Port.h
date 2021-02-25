@@ -18,7 +18,7 @@ private:
 public:
     Port(int = 0, std::string = "Port");
     Port(Device* parent, int=0, std::string="Port");
-    virtual ~Port();
+    virtual ~Port() = default;
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();

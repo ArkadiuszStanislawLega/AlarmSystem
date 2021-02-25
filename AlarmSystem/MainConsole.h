@@ -19,7 +19,8 @@ private:
     AlarmPanelController _alarmPanelControllers[MAX_NUMBER_OF_DEVICES];
 
 public:
-    MainConsole();
+    MainConsole() = default;
+    virtual ~MainConsole() = default;
     virtual int GetId();
     virtual std::string GetName();
     virtual std::string GetLabel();

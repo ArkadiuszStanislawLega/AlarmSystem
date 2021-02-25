@@ -11,7 +11,7 @@ MainConsoleController::MainConsoleController()
 MainConsoleController::~MainConsoleController()
 {
 
-};
+}
 
 void MainConsoleController::CheckInput()
 {
@@ -21,8 +21,6 @@ void MainConsoleController::CheckInput()
 void MainConsoleController::MainLoop()
 {
     this->_view.PrintWelcome();
-    // Port* pointer = this->_model.GetPorts();
-    // this->_view.PrintPortStatus(pointer);
 
     while (this->_isWorking)
     {

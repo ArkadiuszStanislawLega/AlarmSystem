@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MAIN_CONSOLE_CONTROLLER_H
+#define MAIN_CONSOLE_CONTROLLER_H
 #include <iostream>
 #include "MainConsoleView.h"
 #include "MainConsole.h"
@@ -14,14 +16,14 @@ private:
 	MainConsole _model;
 
 	bool _isWorking;
+	
 
 public:
-	MainConsoleController();
-	virtual ~MainConsoleController();
+	MainConsoleController() = default;
+	virtual ~MainConsoleController() = default;
 	void CheckInput();
 	void MainLoop();
 	void ConvertInput();
 	void MakeCommand();
 };
-
-
+#endif
