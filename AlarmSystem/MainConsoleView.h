@@ -10,7 +10,7 @@ class MainConsoleView
 public:
 	void PrintWelcome();
 	void PrintHelp();
-	void PrintPortStatus(Port*);
+	void PrintPortStatus(Port*, int);
 };
 #endif
 

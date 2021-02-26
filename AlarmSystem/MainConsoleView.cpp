@@ -14,12 +14,10 @@ void MainConsoleView::PrintWelcome()
     std::cout << "Wyswietl help - help" << std::endl;
 }
 
-void MainConsoleView::PrintPortStatus( Port* ports)
+void MainConsoleView::PrintPortStatus( Port* ports, int size)
 {
-    for (size_t i = 0; ; i++)
+    for (size_t i = 0; i < (size_t)size; i++)
     {
-        if(ports == nullptr) break;
-        std::cout << ports->GetStatus() << std::endl;
-        ports++;
+        std::cout << (ports+i)->GetStatus() << std::endl;
     }
 }

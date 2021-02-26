@@ -9,19 +9,17 @@
 
 class MainConsole : public Device
 {
-private:
-    static const int MAX_NUMBER_OF_PORTS {10};
-    static const int MAX_NUMBER_OF_DEVICES{ 10 };
-
-    int _alarmPanelCounter;
-
-    Port _ports[MAX_NUMBER_OF_PORTS];
-    AlarmPanelController _alarmPanelControllers[MAX_NUMBER_OF_DEVICES];
-
 public:
+    static const int MAX_NUMBER_OF_PORTS {10};
+    static const int MAX_NUMBER_OF_DEVICES {10};
     MainConsole();
      Port* GetPorts();
     // void Create(int, std::string);
     // void Connect();
+
+private:
+    int _alarmPanelCounter;
+    Port _ports[MAX_NUMBER_OF_PORTS];
+    AlarmPanelController _alarmPanelControllers[MAX_NUMBER_OF_DEVICES];
 };
 #endif

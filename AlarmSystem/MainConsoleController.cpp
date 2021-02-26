@@ -8,11 +8,6 @@ MainConsoleController::MainConsoleController()
     MainLoop();
 }
 
-MainConsoleController::~MainConsoleController()
-{
-
-}
-
 void MainConsoleController::CheckInput()
 {
     std::cin >> this->_currentCommand;
@@ -61,7 +56,7 @@ void MainConsoleController::MakeCommand()
         break;
 
     case status:
-        this->_view.PrintPortStatus(this->_model.GetPorts());
+        this->_view.PrintPortStatus(this->_model.GetPorts(), this->_model.MAX_NUMBER_OF_PORTS);
         break;
 
     case connect:

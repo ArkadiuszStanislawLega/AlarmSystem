@@ -15,5 +15,8 @@ public:
 	int GetId();
 	std::string GetName();
 	std::string GetLabel();
+
+	void SetId(int);
+	void SetName(std::string);
 };
 

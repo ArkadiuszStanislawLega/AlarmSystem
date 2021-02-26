@@ -13,14 +13,13 @@ private:
 	Commands _command;
 
 	MainConsoleView _view;
-	MainConsole _model;
+	MainConsole _model; 
 
 	bool _isWorking;
 	
 
 public:
 	MainConsoleController();
-	virtual ~MainConsoleController();
 	void CheckInput();
 	void MainLoop();
 	void ConvertInput();
