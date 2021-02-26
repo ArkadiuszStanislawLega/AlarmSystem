@@ -19,21 +19,6 @@ Port::Port(Device* parent, int id, std::string name)
     this->_deviceCounter++;
 }
 
-int Port::GetId()
-{
-    return this->_id;
-}
-
-std::string Port::GetName()
-{
-    return this->_name;
-}
-
-std::string Port::GetLabel()
-{
-    return to_string(this->_id);
-}
-
 bool Port::IsConnected()
 {
     return this->_isConnected;

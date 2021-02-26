@@ -1,16 +1,19 @@
 #pragma once
+#include <string>
 #include <iostream>
+
+using std::to_string;
 
 class Device
 {
 protected:
-	int _id{ 0 };
-	std::string _name = "Device";
+	int _id;
+	std::string _name;
 
 public:
-	virtual ~Device() = default;
-	virtual int GetId() = 0;
-	virtual std::string GetName() = 0;
-	virtual std::string GetLabel() = 0;
+	Device();
+	int GetId();
+	std::string GetName();
+	std::string GetLabel();
 };
 

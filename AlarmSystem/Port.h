@@ -18,9 +18,6 @@ private:
 public:
     Port(int = 0, std::string = "Port");
     Port(Device* parent, int=0, std::string="Port");
-    virtual int GetId();
-    virtual std::string GetName();
-    virtual std::string GetLabel();
 
     bool IsConnected();
     Device* GetParent();

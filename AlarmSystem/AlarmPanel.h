@@ -22,10 +22,6 @@ private:
 	Port _port;
 public:
 	AlarmPanel(int = 0, std::string = "AlarmPanel");
-	virtual int GetId();
-
-	virtual std::string GetLabel();
-	virtual std::string GetName();
 
 	int GetUsersCounter();
 	int GetLoggedUsersCounter();

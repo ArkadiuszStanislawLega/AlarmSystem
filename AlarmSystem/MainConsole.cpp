@@ -5,23 +5,6 @@ MainConsole::MainConsole()
     this->_alarmPanelCounter = { 0 };
 }
 
-
-
-int MainConsole::GetId()
-{
-    return this->_id;
-}
-
-std::string MainConsole::GetName()
-{
-    return this->_name;
-}
-
-std::string MainConsole::GetLabel()
-{
-    return this->_id + " " + this->_name; 
-}
-
  Port* MainConsole::GetPorts()
  {
      return this->_ports;

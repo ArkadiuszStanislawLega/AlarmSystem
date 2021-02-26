@@ -20,9 +20,6 @@ private:
 
 public:
     MainConsole();
-    virtual int GetId();
-    virtual std::string GetName();
-    virtual std::string GetLabel();
      Port* GetPorts();
     // void Create(int, std::string);
     // void Connect();
