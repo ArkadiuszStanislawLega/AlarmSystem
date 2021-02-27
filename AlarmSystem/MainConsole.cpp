@@ -21,3 +21,8 @@ MainConsole::MainConsole()
      this->_alarmPanelControllers[0].ConnectPort(&this->_ports[0]);
      this->_ports[0].Connect(this->_alarmPanelControllers[0].GetModel().GetPort());
  }
+
+ AlarmPanelController* MainConsole::GetControllers()
+ {
+     return this->_alarmPanelControllers;
+ }

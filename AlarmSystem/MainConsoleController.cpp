@@ -60,7 +60,8 @@ void MainConsoleController::MakeCommand()
         break;
 
     case connect:
-         this->_model.Connect();
+        this->_model.Connect();
+        this->_view.PrintConnectPort(&this->_model.GetPorts()[0], this->_model.GetControllers()[0].GetModel().GetPort());
         break; 
 
     case create:

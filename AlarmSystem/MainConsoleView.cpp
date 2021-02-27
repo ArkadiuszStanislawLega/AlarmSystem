@@ -1,5 +1,16 @@
 #include "MainConsoleView.h"
 
+MainConsoleView::MainConsoleView()
+{
+    this->_name = "Main Console";
+}
+
+
+std::string MainConsoleView::Label()
+{
+    return this->_name + "> ";
+}
+
 void MainConsoleView::PrintHelp()
 {
     std::cout << "help      - pomoc dotyczaca polecen" << std::endl;
@@ -20,4 +31,9 @@ void MainConsoleView::PrintPortStatus( Port* ports, int size)
     {
         std::cout << (ports+i)->GetStatus() << std::endl;
     }
+}
+
+void MainConsoleView::PrintConnectPort(Port* port, Port* port2)
+{
+    std::cout << Label() << "Polaczono porty: " << port->GetLabel() << " -> " << port2->GetLabel() << std::endl;
 }

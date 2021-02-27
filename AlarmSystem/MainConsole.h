@@ -17,6 +17,8 @@ public:
     void Create(int, std::string);
     void Connect();
 
+    AlarmPanelController* GetControllers();
+
 private:
     int _alarmPanelCounter;
     Port _ports[MAX_NUMBER_OF_PORTS];
