@@ -7,17 +7,6 @@ AlarmPanelView::AlarmPanelView(int id, std::string name)
 	this->_name = name;
 
 }
-AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
-{	
-	this->_id = id;
-	this->_name = name;
-	this->_model = model;
-}
-
-AlarmPanel* AlarmPanelView::GetModel()
-{
-	return this->_model;
-}
 
 void AlarmPanelView::printStress()
 {
@@ -77,13 +66,13 @@ void AlarmPanelView::PrintLoggedIn(User user)
 	std::cout << "Witaj " << user.GetName() << std::endl;
 }
 
-void AlarmPanelView::PrintLoggedInUsers()
+void AlarmPanelView::PrintLoggedInUsers(User* users, int size)
 {
-	std::cout << Label() << "Aktualnie zalogowani uzytkownicy(" << this->_model->GetLoggedUsersCounter() << "): "<< std::endl;
+	std::cout << Label() << "Aktualnie zalogowani uzytkownicy(" << size << "): "<< std::endl;
 
-	for (size_t i = 0; i < (size_t)this->_model->GetLoggedUsersCounter(); i++)
+	for (size_t i = 0; i < (size_t)size; i++)
 	{
-		std::cout << printTab() << this->_model->GetLoggedUsers()[i].GetId() << ". " << this->_model->GetLoggedUsers()[i].Introduce() << std::endl;
+		std::cout << printTab() << users[i].GetId() << ". " << users[i].Introduce() << std::endl;
 	}
 }
 
@@ -102,20 +91,18 @@ void AlarmPanelView::PrintRemoveUser(User* user)
 	std::cout << Label() << "Usunieto uzytkownika " << user->Introduce() << "." << std::endl;
 }
 
-void AlarmPanelView::PrintUsers()
+void AlarmPanelView::PrintUsers(User* users, int size)
 {
-	std::cout << Label() << "Uzytkownicy w bazie danych(" << this->_model->GetUsersCounter() << "):" << std::endl;
-	User* pointer = this->_model->GetUsers();
-	for (size_t i = 0; i < (size_t)this->_model->GetUsersCounter(); i++)
+	std::cout << Label() << "Uzytkownicy w bazie danych(" << size << "):" << std::endl;
+	for (size_t i = 0; i < (size_t)size; i++)
 	{
-		std::cout << printTab() << pointer->GetId() << ". " << pointer->Introduce() << std::endl;
-		pointer++;
+		std::cout << printTab() << users[i].GetId() << ". " << users[i].Introduce() << std::endl;
 	}
 }
  
-void AlarmPanelView::PrintConnectPort(Port* port)
+void AlarmPanelView::PrintConnectPort(Port* port, AlarmPanel* model)
 {
-	std::cout << Label() << "Polaczono port " << this->_model->GetPort()->GetLabel() << "->" << port->GetLabel() << std::endl;
+	std::cout << Label() << "Polaczono port " << model->GetPort()->GetLabel() << "->" << port->GetLabel() << std::endl;
 }
 
 

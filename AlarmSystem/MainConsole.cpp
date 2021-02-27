@@ -18,8 +18,6 @@ MainConsole::MainConsole()
 
  void MainConsole::Connect()
  {
-     std::cout << "_alarmPanelControllers[0] - ConnectPort -  model: " << &this->_alarmPanelControllers[0].GetModel() << std::endl;
-     std::cout << "_alarmPanelControllers[0] - ConnectPort - view - model: " << this->_alarmPanelControllers[0].GetView().GetModel() << std::endl;
-
      this->_alarmPanelControllers[0].ConnectPort(&this->_ports[0]);
+     this->_ports[0].Connect(this->_alarmPanelControllers[0].GetModel().GetPort());
  }

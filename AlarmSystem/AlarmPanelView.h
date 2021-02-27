@@ -8,16 +8,13 @@ class AlarmPanelView : public View
 {
 private:
 	AlarmPanelController* _controller;
-	AlarmPanel* _model;
 	void printStress();
 	std::string printTab();
 
 public:
 	AlarmPanelView(int = 0, std::string = "Alarm Panel View");
-	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
 	std::string Label();
-	AlarmPanel* GetModel();
 
 	void SetController(AlarmPanelController* controller);
 
@@ -26,11 +23,11 @@ public:
 	void PrintFailAddUser(User* user);
 	void PrintFailToLogin();
 	void PrintLoggedIn(User user);
-	void PrintLoggedInUsers();
+	void PrintLoggedInUsers(User*, int);
 	void PrintLoggedOut(User* user); 
 	void PrintLogin();
 	void PrintRemoveUser(User* user);
-	void PrintUsers();
-	void PrintConnectPort(Port* port);
+	void PrintUsers(User*, int);
+	void PrintConnectPort(Port* port, AlarmPanel*);
 };
 
