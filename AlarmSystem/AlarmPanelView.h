@@ -16,10 +16,8 @@ public:
 	AlarmPanelView(int = 0, std::string = "Alarm Panel View");
 	AlarmPanelView(AlarmPanel*, int = 0, std::string = "Alarm Panel View");
 
-	virtual int* GetId();
-	virtual std::string* GetName();
-
-	virtual std::string Label();
+	std::string Label();
+	AlarmPanel* GetModel();
 
 	void SetController(AlarmPanelController* controller);
 

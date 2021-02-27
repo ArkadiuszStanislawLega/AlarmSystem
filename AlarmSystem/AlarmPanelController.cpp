@@ -3,7 +3,20 @@
 AlarmPanelController::AlarmPanelController(int id, std::string name)
 {
 	this->_model = AlarmPanel(id, name);
-	this->_view = AlarmPanelView(id, name);
+	this->_view = AlarmPanelView(&_model, id, name);
+
+	std::cout << "AlarmPanelController - model: " << &this->_model << std::endl;
+	std::cout << "AlarmPanelController - view - model: " << this->_view.GetModel() << std::endl;
+}
+
+AlarmPanel AlarmPanelController::GetModel()
+{
+	return this->_model;
+}
+
+AlarmPanelView AlarmPanelController::GetView()
+{
+	return this->_view;
 }
 
 void AlarmPanelController::GetInput()
@@ -58,6 +71,9 @@ void AlarmPanelController::TempLogin(User user)
 
 void AlarmPanelController::ConnectPort(Port* port)
 {
+	std::cout << "AlarmPanelController - ConnectPort - model: " << &this->_model << std::endl;
+	std::cout << "AlarmPanelController - ConnectPort - view - model: " << this->_view.GetModel() << std::endl;
+
 	this->_model.GetPort()->Connect(port);
 	this->_view.PrintConnectPort(port);
 }

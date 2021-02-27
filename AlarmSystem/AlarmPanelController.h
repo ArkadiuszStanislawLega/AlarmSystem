@@ -17,6 +17,9 @@ public:
 	void GetInput();
 	void GetUsers();
 
+	AlarmPanel GetModel();
+	AlarmPanelView GetView();
+
 	void AddUser(User user);
 	void GetAllLoginUsers();
 	void Login();

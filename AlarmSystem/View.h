@@ -1,5 +1,10 @@
 #pragma once
+#ifndef VIEW_H
+#define VIEW_H
 #include <iostream>
+#include <string>
+
+using std::to_string;
 
 class View
 {
@@ -8,8 +13,11 @@ protected:
 	std::string _name;
 
 public:
-	virtual int* GetId() = 0;
-	virtual std::string* GetName() = 0;
-	virtual std::string Label() = 0;
+	int GetId();
+	std::string GetName();
+	std::string Label();
+	void SetName(std::string);
+	void SetId(int);
 };
+#endif
 

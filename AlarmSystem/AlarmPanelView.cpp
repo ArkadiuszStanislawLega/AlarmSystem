@@ -14,6 +14,10 @@ AlarmPanelView::AlarmPanelView(AlarmPanel* model, int id, std::string name )
 	this->_model = model;
 }
 
+AlarmPanel* AlarmPanelView::GetModel()
+{
+	return this->_model;
+}
 
 void AlarmPanelView::printStress()
 {
@@ -33,16 +37,6 @@ std::string AlarmPanelView::printTab()
 		tab += " ";
 	}
 	return tab;
-}
-
-int* AlarmPanelView::GetId()
-{
-	return &this->_id;
-}
-
-std::string* AlarmPanelView::GetName()
-{
-	return &this->_name;
 }
 
 std::string AlarmPanelView::Label()

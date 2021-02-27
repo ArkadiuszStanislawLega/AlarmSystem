@@ -60,11 +60,11 @@ void MainConsoleController::MakeCommand()
         break;
 
     case connect:
-        // this->_model.Connect();
+         this->_model.Connect();
         break; 
 
     case create:
-        // this->_model.Create(1, "alarm panel");
+         this->_model.Create(1, "alarm panel");
         break;
 
     default:

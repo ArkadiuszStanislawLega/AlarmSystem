@@ -14,8 +14,8 @@ public:
     static const int MAX_NUMBER_OF_DEVICES {10};
     MainConsole();
      Port* GetPorts();
-    // void Create(int, std::string);
-    // void Connect();
+     void Create(int, std::string);
+     void Connect();
 
 private:
     int _alarmPanelCounter;
