@@ -4,6 +4,30 @@ AlarmPanelController::AlarmPanelController(int id, std::string name)
 {
 	this->_model = AlarmPanel(id, name);
 	this->_view = AlarmPanelView(id, name);
+
+	MainLoop();
+}
+
+void AlarmPanelController::MainLoop()
+{
+	Login();
+
+	while (this->_isConnected)
+	{
+		GetInput();
+		ConvertInput();
+		MakeCommand();
+	}
+}
+
+void AlarmPanelController::ConvertInput()
+{
+
+}
+
+void AlarmPanelController::MakeCommand()
+{
+
 }
 
 AlarmPanel AlarmPanelController::GetModel()
@@ -18,7 +42,7 @@ AlarmPanelView AlarmPanelController::GetView()
 
 void AlarmPanelController::GetInput()
 {
-	std::cin >> this->_input_password >> this->_input_pin;
+	std::cin >> this->_input;
 }
 
 void AlarmPanelController::GetUsers()
@@ -40,10 +64,39 @@ void AlarmPanelController::GetAllLoginUsers()
 	this->_view.PrintLoggedInUsers(this->_model.GetLoggedUsers(), this->_model.GetLoggedUsersCounter());
 }
 
-void AlarmPanelController::Login()
+bool AlarmPanelController::GetUserName()
+{
+	std::cin >> this->_input_username;
+	//TODO: Zrobic walidacje i porownanie z baza danych
+	return true;
+}
+
+bool AlarmPanelController::GetUserPassword()
+{
+	std::cin >> this->_input_password;
+	//TODO: Zrobic walidacje i porownanie z baza danych
+	return true;
+}
+
+bool AlarmPanelController::Login()
 {
 	this->_view.PrintLogin();
-	this->_view.PrintLoggedIn(User(123,32123, "Mortadela", "Tarabaniaz"));
+	if (GetUserName() && GetUserPassword())
+	{
+		User tempLogIn = User(123, 32123, "Mortadela", "Tarabaniaz");
+		if (this->_model.IsLogin(tempLogIn))
+		{
+			this->_view.PrintLoggedIn(tempLogIn);
+			return true;
+		}
+		else
+			this->_view.PrintFailToLogin();
+	}
+	else
+		this->_view.PrintFailToLogin();
+
+
+	return false;
 }
 
 void AlarmPanelController::Logout(User* user)
