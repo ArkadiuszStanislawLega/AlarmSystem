@@ -32,7 +32,7 @@ public:
 
 	void AddUser(User user);
 	void GetAllLoginUsers();
-	bool Login();
+	void Login();
 	void Logout(User* user);
 	void RemoveUser(User* user);
 	void TempLogin(User user);

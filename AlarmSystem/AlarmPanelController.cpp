@@ -4,14 +4,10 @@ AlarmPanelController::AlarmPanelController(int id, std::string name)
 {
 	this->_model = AlarmPanel(id, name);
 	this->_view = AlarmPanelView(id, name);
-
-	MainLoop();
 }
 
 void AlarmPanelController::MainLoop()
 {
-	Login();
-
 	while (this->_isConnected)
 	{
 		GetInput();
@@ -78,7 +74,7 @@ bool AlarmPanelController::GetUserPassword()
 	return true;
 }
 
-bool AlarmPanelController::Login()
+void AlarmPanelController::Login()
 {
 	this->_view.PrintLogin();
 	if (GetUserName() && GetUserPassword())
@@ -87,7 +83,7 @@ bool AlarmPanelController::Login()
 		if (this->_model.IsLogin(tempLogIn))
 		{
 			this->_view.PrintLoggedIn(tempLogIn);
-			return true;
+			this->MainLoop();
 		}
 		else
 			this->_view.PrintFailToLogin();
@@ -95,8 +91,6 @@ bool AlarmPanelController::Login()
 	else
 		this->_view.PrintFailToLogin();
 
-
-	return false;
 }
 
 void AlarmPanelController::Logout(User* user)

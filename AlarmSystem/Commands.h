@@ -1,1 +1,1 @@
-enum Commands{start, status, help, ex, connect, create};
+enum Commands{start, status, help, ex, connect, create, enter};
