@@ -24,6 +24,11 @@ bool Port::IsConnected()
     return this->_isConnected;
 }
 
+Port* Port::GetConnectedPort()
+{
+    return this->_connectedPort;
+}
+
 Device* Port::GetParent()
 {
     return this->_parent;
