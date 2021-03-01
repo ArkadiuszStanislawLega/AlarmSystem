@@ -7,16 +7,14 @@ Port::Port(int id, std::string name)
     this->_id = id == 0 ? this->_deviceCounter : id;
     this->_name = name;
     this->_isConnected = false;
-    this->_deviceCounter++;
+    std::cout << "Port konstruktor bez wskaznika." << std::endl;
 }
 
 Port::Port(Device* parent, int id, std::string name)
+    :Port(id, name)
 {
-    this->_id = id == 0 ? this->_deviceCounter : id;
-    this->_name = name;
-    this->_isConnected = {false};
     this->_parent = parent;
-    this->_deviceCounter++;
+    std::cout << "Port konstruktor ze wskaznikiem. " << to_string(this->_id) << " " << this->_name << std::endl;
 }
 
 bool Port::IsConnected()

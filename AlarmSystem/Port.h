@@ -21,6 +21,7 @@ public:
 
     bool IsConnected();
     Device* GetParent();
+    Port* GetConnectedPort();
     std::string GetStatus();
 
     void SetParent(Device* device);

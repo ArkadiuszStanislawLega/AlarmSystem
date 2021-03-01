@@ -41,6 +41,9 @@ void MainConsoleController::ConvertInput()
 
     if (this->_currentCommand == "create")
         this->_command = create;
+
+    if (this->_currentCommand == "enter")
+        this->_command = enter;
 }
 
 void MainConsoleController::MakeCommand()
@@ -60,12 +63,18 @@ void MainConsoleController::MakeCommand()
         break;
 
     case connect:
+    {
         this->_model.Connect();
         this->_view.PrintConnectPort(&this->_model.GetPorts()[0], this->_model.GetControllers()[0].GetModel().GetPort());
-        break; 
-
+        break;
+    }
     case create:
-         this->_model.Create(1, "alarm panel");
+    {
+        this->_model.Create(1, "alarm panel");
+        break;
+    }
+    case enter:
+        std::cout << this->_model.GetPorts()[0].GetConnectedPort()->GetParent()->GetId() << std::endl;
         break;
 
     default:
