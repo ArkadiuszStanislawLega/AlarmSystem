@@ -16,6 +16,8 @@ private:
     Port* _connectedPort;
 
 public:
+    static int GetDeviceCounter();
+    
     Port(int = 0, std::string = "Port");
     Port(Device* parent, int=0, std::string="Port");
 
