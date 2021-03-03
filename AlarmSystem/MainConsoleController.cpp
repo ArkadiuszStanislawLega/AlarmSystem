@@ -15,7 +15,7 @@ void MainConsoleController::CheckInput()
 
 void MainConsoleController::MainLoop()
 {
-    this->_view.PrintWelcome();
+    this->_view->PrintWelcome();
 
     while (this->_isWorking)
     {
@@ -51,33 +51,57 @@ void MainConsoleController::MakeCommand()
     switch (this->_command)
     {
     case ex:
+    {
         this->_isWorking = false;
         break;
-
+    }
     case help:
-        this->_view.PrintHelp();
+    {    this->_view->PrintHelp();
         break;
-
+    }
     case status:
-        this->_view.PrintPortStatus(this->_model.GetPorts(), this->_model.MAX_NUMBER_OF_PORTS);
+    {
+        PortsStatus();
         break;
-
+    }
     case connect:
     {
-        this->_model.Connect();
-        this->_view.PrintConnectPort(&this->_model.GetPorts()[0], this->_model.GetControllers()[0].GetModel().GetPort());
+        Connect();
         break;
     }
     case create:
     {
-        this->_model.Create(1, "alarm panel");
+        Create();
         break;
     }
     case enter:
-        std::cout << this->_model.GetPorts()[0].GetConnectedPort()->GetParent()->GetId() << std::endl;
+    {
+        Enter();
         break;
-
+    }
     default:
         break;
     }
 }
+
+    void MainConsoleController::PortsStatus()
+    {
+        this->_view->PrintPortStatus(this->_model->GetPorts(), this->_model->MAX_NUMBER_OF_PORTS);
+    }
+
+    void MainConsoleController::Connect()
+    {
+        this->_model->Connect();
+        this->_view->PrintConnectPort(&this->_model->GetPorts()[0], this->_model->GetControllers()[0].GetModel().GetPort());
+    }
+
+    void MainConsoleController::Create()
+    {
+        this->_model->Create(1, "alarm panel");
+    }
+
+    void MainConsoleController::Enter()
+    {
+        std::cout << this->_model->GetPorts()[0].GetConnectedPort()->GetParent()->GetId() << std::endl;
+
+    }

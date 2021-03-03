@@ -12,8 +12,8 @@ private:
 
 	Commands _command;
 
-	MainConsoleView _view;
-	MainConsole _model; 
+	MainConsoleView* _view;
+	MainConsole* _model; 
 
 	bool _isWorking;
 	
@@ -24,5 +24,10 @@ public:
 	void MainLoop();
 	void ConvertInput();
 	void MakeCommand();
+
+	void PortsStatus();
+	void Connect();
+	void Create();
+	void Enter();
 };
 #endif

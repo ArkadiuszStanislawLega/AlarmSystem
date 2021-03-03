@@ -7,5 +7,8 @@
 int main()
 {
     MainConsoleController m = MainConsoleController();
+    m.Create();
+    m.Connect();
+    m.PortsStatus();
     return 0;
 }
