@@ -4,11 +4,14 @@
 #include "AlarmSystem.h"
 
 
+
 int main()
 {
-    MainConsoleController m = MainConsoleController();
-    m.Create();
-    m.Connect();
-    m.PortsStatus();
+    auto model = MainConsole();
+    auto controller  = MainConsoleController();
+    controller.SetModel(&model);
+    controller.Create();
+    controller.Connect();
+    controller.PortsStatus();
     return 0;
 }
