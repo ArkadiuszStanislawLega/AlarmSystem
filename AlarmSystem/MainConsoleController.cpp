@@ -25,6 +25,11 @@ void MainConsoleController::MainLoop()
     }
 }
 
+void MainConsoleController::SetModel(MainConsole* model)
+{
+    this->_model = model;
+}
+
 void MainConsoleController::ConvertInput()
 {
     if (this->_currentCommand == "exit")

@@ -29,5 +29,7 @@ public:
 	void Connect();
 	void Create();
 	void Enter();
+
+	void SetModel(MainConsole*);
 };
 #endif
