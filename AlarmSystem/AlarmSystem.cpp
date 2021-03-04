@@ -13,8 +13,11 @@ int main()
 
     controller.SetModel(&model);
     controller.SetView(&view);
-    controller.Create();
-    controller.Connect();
-    controller.PortsStatus();
+    controller.MainLoop();
+    //controller.Create();
+    //controller.Connect();
+    //controller.PortsStatus();
+    //controller.Enter();
+     
     return 0;
 }

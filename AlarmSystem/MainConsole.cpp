@@ -11,24 +11,80 @@ MainConsole::MainConsole()
     
 }
 
+int MainConsole::GetAlarmPanelCounter()
+{
+    return this->_alarmPanelCounter;
+}
+
  Port* MainConsole::GetPorts()
  {
      return this->_ports;
  }
 
- void MainConsole::Create(int id, std::string name)
+ bool MainConsole::ConnectPort(Port* port)
  {
-     this->_alarmPanelControllers[this->_alarmPanelCounter] = AlarmPanelController(id, name);
-     this->_alarmPanelCounter++;
+     for (size_t i = 0; i < MAX_NUMBER_OF_PORTS; i++)
+     {
+         if (!this->_ports[i].IsConnected())
+         {
+             this->_ports[i].Connect(port);
+             return true;
+         }
+     }
+
+     return false;
  }
 
- void MainConsole::Connect()
+ bool MainConsole::DisconnectPort(int portNumber)
  {
-     this->_alarmPanelControllers[0].ConnectPort(&this->_ports[0]);
-     this->_ports[0].Connect(this->_alarmPanelControllers[0].GetModel().GetPort());
+     for (size_t i = 0; i < MAX_NUMBER_OF_PORTS; i++)
+     {
+         if (this->_ports[i].GetId() == portNumber)
+         {
+             if (this->_ports[i].IsConnected())
+             {
+                 this->_ports[i].Disconnect();
+                 return true;
+             }
+         }
+     }
+     return false;
  }
 
- AlarmPanelController* MainConsole::GetControllers()
+ bool MainConsole::CreateAlarmPanel(AlarmPanel alarmPanel)
  {
-     return this->_alarmPanelControllers;
+     if (alarmPanel.GetId() != 0)
+     {
+         for (size_t i = 0; i < MAX_NUMBER_OF_DEVICES; i++)
+         {
+             if (this->_alarmPanels[i].GetId() == 0)
+             {
+                 this->_alarmPanels[i] = alarmPanel;
+                 this->_alarmPanelCounter++;
+                 return true;
+             }
+         }
+     }
+
+     return false;
+ }
+
+ AlarmPanel* MainConsole::GetAlarmPanels()
+ {
+     return this->_alarmPanels;
+ }
+
+ bool MainConsole::RemoveAlarmPanel(int id)
+ {
+     for (size_t i = 0; i < MAX_NUMBER_OF_DEVICES; i++)
+     {
+         if (this->_alarmPanels[i].GetId() == id)
+         {
+             this->_alarmPanels[i] = 0;
+             this->_alarmPanelCounter--;
+             return true;
+         }
+     }
+
+     return false;
  }

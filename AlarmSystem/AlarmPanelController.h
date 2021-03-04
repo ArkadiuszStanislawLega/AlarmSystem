@@ -1,12 +1,11 @@
 #pragma once
-#include "AlarmPanel.h"
-#include "AlarmPanelView.h"
+#include "MainConsoleController.h"
 
+class MainConsoleController;
 class AlarmPanelController
 {
 private:
-	AlarmPanel _model;
-	AlarmPanelView _view;
+	MainConsoleController* _parent;
 
 	bool _isConnected;
 
@@ -23,12 +22,10 @@ private:
 	bool GetUserPassword();
 	 
 public:
-	AlarmPanelController(int=0, std::string = "");
+	AlarmPanelController();
+	AlarmPanelController(MainConsoleController*);
 
-	void GetUsers();
-
-	AlarmPanel GetModel();
-	AlarmPanelView GetView();
+	void GetUsers(int);
 
 	void AddUser(User user);
 	void GetAllLoginUsers();

@@ -1,1 +1,1 @@
-enum Commands{start, status, help, ex, connect, create, enter};
+enum Commands{start, removeAp, getPanels, status, help, ex, connect, createAp, enter};

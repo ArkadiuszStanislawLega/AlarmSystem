@@ -4,9 +4,19 @@
 MainConsoleController::MainConsoleController()
 {
     this->_isWorking = true;
-
-    MainLoop();
 }
+
+
+MainConsoleView* MainConsoleController::GetView()
+{
+    return this->_view;
+}
+MainConsole* MainConsoleController::GetModel()
+{
+    return this->_model;
+}
+
+
 
 void MainConsoleController::CheckInput()
 {
@@ -49,11 +59,16 @@ void MainConsoleController::ConvertInput()
     if (this->_currentCommand == "connect")
         this->_command = connect;
 
-    if (this->_currentCommand == "create")
-        this->_command = create;
+    if (this->_currentCommand == "createap")
+        this->_command = createAp;
 
     if (this->_currentCommand == "enter")
         this->_command = enter;
+    if (this->_currentCommand == "removeap")
+        this->_command = removeAp;
+
+    if (this->_currentCommand == "getpanels")
+        this->_command = getPanels;
 }
 
 void MainConsoleController::MakeCommand()
@@ -79,9 +94,20 @@ void MainConsoleController::MakeCommand()
         Connect();
         break;
     }
-    case create:
+    case createAp:
     {
-        Create();
+        CreateNewAlarmPanel();
+        break;
+    }
+    case removeAp:
+    {
+        RemoveAlarmPanel();
+        break;
+    }
+
+    case getPanels:
+    {
+        GetAlarmPanels();
         break;
     }
     case enter:
@@ -101,17 +127,50 @@ void MainConsoleController::MakeCommand()
 
     void MainConsoleController::Connect()
     {
-        this->_model->Connect();
-        this->_view->PrintConnectPort(&this->_model->GetPorts()[0], this->_model->GetControllers()[0].GetModel().GetPort());
+       /* this->_model->Connect();
+        this->_view->PrintConnectPort(&this->_model->GetPorts()[0], this->_model->GetControllers()[0].GetModel().GetPort());*/
     }
 
     void MainConsoleController::Create()
     {
-        this->_model->Create(1, "alarm panel");
+
     }
 
     void MainConsoleController::Enter()
     {
         std::cout << this->_model->GetPorts()[0].GetConnectedPort()->GetParent()->GetId() << std::endl;
 
+    }
+
+    void MainConsoleController::CreateNewAlarmPanel()
+    {
+        int idInput;
+        std::string nameInput;
+
+        this->_view->CreateNewAlarmPanel();
+
+        std::cin >> idInput >> nameInput;
+
+        if (this->_model->CreateAlarmPanel(AlarmPanel(idInput, nameInput)))
+            this->_view->CreatedNewAlarmPanel();
+        else
+            this->_view->CreatedNewAlarmPanelFailed();
+    }
+
+    void MainConsoleController::GetAlarmPanels()
+    {
+        this->_view->PrintAlarmPanels(this->_model->GetAlarmPanels(), this->_model->GetAlarmPanelCounter());
+    }
+
+    void MainConsoleController::RemoveAlarmPanel()
+    {
+        int idInput;
+        this->_view->PrintGetIdOfAlarmPanel();
+
+        std::cin >> idInput;
+
+        if (this->_model->RemoveAlarmPanel(idInput))
+            this->_view->PrintRemovedAlarmPanelSuccessful();
+        else
+            this->_view->PrintRemovedAlarmPanelFailed();
     }

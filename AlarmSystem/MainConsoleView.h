@@ -2,11 +2,13 @@
 #ifndef MAIN_CONSOLE_VIEW_H
 #define MAIN_CONSOLE_VIEW_H
 #include <iostream>
-#include "Port.h"
 #include "View.h"
+#include "AlarmPanelView.h"
 
+class Port;
 class MainConsoleView : View
 {
+private:
 
 public:
 	MainConsoleView();
@@ -15,6 +17,14 @@ public:
 	void PrintHelp();
 	void PrintPortStatus(Port*, int);
 	void PrintConnectPort(Port*, Port*);
+	void CreateNewAlarmPanel();
+	void CreatedNewAlarmPanel();
+	void CreatedNewAlarmPanelFailed();
+	void PrintAlarmPanels(AlarmPanel*, int);
+	void PrintGetIdOfAlarmPanel();
+	void PrintRemovedAlarmPanelSuccessful();
+	void PrintRemovedAlarmPanelFailed();
+
 };
 #endif
 

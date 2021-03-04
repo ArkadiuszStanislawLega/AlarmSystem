@@ -1,9 +1,15 @@
 #include "AlarmPanelController.h"
 
-AlarmPanelController::AlarmPanelController(int id, std::string name)
+AlarmPanelController::AlarmPanelController()
 {
-	this->_model = AlarmPanel(id, name);
-	this->_view = AlarmPanelView(id, name);
+	this->_isConnected = { false };
+	this->_input = { "" };
+}
+
+AlarmPanelController::AlarmPanelController(MainConsoleController* parent)
+	:AlarmPanelController()
+{
+	this->_parent = parent;
 }
 
 void AlarmPanelController::MainLoop()
@@ -26,38 +32,31 @@ void AlarmPanelController::MakeCommand()
 
 }
 
-AlarmPanel AlarmPanelController::GetModel()
-{
-	return this->_model;
-}
-
-AlarmPanelView AlarmPanelController::GetView()
-{
-	return this->_view;
-}
-
 void AlarmPanelController::GetInput()
 {
 	std::cin >> this->_input;
 }
 
-void AlarmPanelController::GetUsers()
+void AlarmPanelController::GetUsers(int index)
 {
-	this->_view.PrintUsers(this->_model.GetUsers(), this->_model.GetUsersCounter());
+	auto alarmPanel = this->_parent->GetModel()->GetAlarmPanels()[index];
+	/*auto view = this->_parent->GetView()->GetAlarmPanelView();*/
+
+	/*view.PrintUsers(alarmPanel.GetUsers(), alarmPanel.GetLoggedUsersCounter());*/
 }
 
 
 void AlarmPanelController::AddUser(User user)
 {
-	if (this->_model.IsUserAdded(user))
-		this->_view.PrintAddedUser(&user);
-	else
-		this->_view.PrintFailAddUser(&user);
+	//if (this->_model.IsUserAdded(user))
+	//	this->_view.PrintAddedUser(&user);
+	//else
+	//	this->_view.PrintFailAddUser(&user);
 }
 
 void AlarmPanelController::GetAllLoginUsers()
 {
-	this->_view.PrintLoggedInUsers(this->_model.GetLoggedUsers(), this->_model.GetLoggedUsersCounter());
+	//this->_view.PrintLoggedInUsers(this->_model.GetLoggedUsers(), this->_model.GetLoggedUsersCounter());
 }
 
 bool AlarmPanelController::GetUserName()
@@ -76,45 +75,45 @@ bool AlarmPanelController::GetUserPassword()
 
 void AlarmPanelController::Login()
 {
-	this->_view.PrintLogin();
-	if (GetUserName() && GetUserPassword())
-	{
-		User tempLogIn = User(123, 32123, "Mortadela", "Tarabaniaz");
-		if (this->_model.IsLogin(tempLogIn))
-		{
-			this->_view.PrintLoggedIn(tempLogIn);
-			this->MainLoop();
-		}
-		else
-			this->_view.PrintFailToLogin();
-	}
-	else
-		this->_view.PrintFailToLogin();
+	//this->_view.PrintLogin();
+	//if (GetUserName() && GetUserPassword())
+	//{
+	//	User tempLogIn = User(123, 32123, "Mortadela", "Tarabaniaz");
+	//	if (this->_model.IsLogin(tempLogIn))
+	//	{
+	//		this->_view.PrintLoggedIn(tempLogIn);
+	//		this->MainLoop();
+	//	}
+	//	else
+	//		this->_view.PrintFailToLogin();
+	//}
+	//else
+	//	this->_view.PrintFailToLogin();
 
 }
 
 void AlarmPanelController::Logout(User* user)
 {
-	if (this->_model.IsLogout(user))
-		this->_view.PrintLoggedOut(user);
+	//if (this->_model.IsLogout(user))
+	//	this->_view.PrintLoggedOut(user);
 }
 
 void AlarmPanelController::RemoveUser(User* user)
 {
-	if (this->_model.IsUserRemoved(user))
-		this->_view.PrintRemoveUser(user);
+	//if (this->_model.IsUserRemoved(user))
+	//	this->_view.PrintRemoveUser(user);
 }
 
 void AlarmPanelController::TempLogin(User user)
 {
-	if (this->_model.IsLogin(user))
-		this->_view.PrintLoggedIn(user);
-	else
-		this->_view.PrintFailToLogin();
+	//if (this->_model.IsLogin(user))
+	//	this->_view.PrintLoggedIn(user);
+	//else
+	//	this->_view.PrintFailToLogin();
 }
 
 void AlarmPanelController::ConnectPort(Port* port)
 {
-	this->_model.GetPort()->Connect(port);
-	this->_view.PrintConnectPort(port, &this->_model);
+	//this->_model.GetPort()->Connect(port);
+	//this->_view.PrintConnectPort(port, &this->_model);
 }

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "MainConsoleView.h"
 #include "MainConsole.h"
+#include "AlarmPanelController.h"
+#include "Commands.h"
 
 class MainConsoleController
 {
@@ -16,7 +18,6 @@ private:
 	MainConsole* _model; 
 
 	bool _isWorking;
-	
 
 public:
 	MainConsoleController();
@@ -29,6 +30,14 @@ public:
 	void Connect();
 	void Create();
 	void Enter();
+
+	void CreateNewAlarmPanel();
+	void GetAlarmPanels();
+	void RemoveAlarmPanel();
+
+	AlarmPanelController GetAlarmPanelController();
+	MainConsoleView* GetView();
+	MainConsole* GetModel();
 
 	void SetModel(MainConsole*);
 	void SetView(MainConsoleView*);
