@@ -8,8 +8,11 @@
 int main()
 {
     auto model = MainConsole();
+    auto view = MainConsoleView();
     auto controller  = MainConsoleController();
+
     controller.SetModel(&model);
+    controller.SetView(&view);
     controller.Create();
     controller.Connect();
     controller.PortsStatus();

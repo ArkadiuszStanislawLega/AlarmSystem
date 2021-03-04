@@ -31,5 +31,6 @@ public:
 	void Enter();
 
 	void SetModel(MainConsole*);
+	void SetView(MainConsoleView*);
 };
 #endif

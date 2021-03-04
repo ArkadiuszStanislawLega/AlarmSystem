@@ -30,6 +30,11 @@ void MainConsoleController::SetModel(MainConsole* model)
     this->_model = model;
 }
 
+void MainConsoleController::SetView(MainConsoleView* view)
+{
+    this->_view = view;
+}
+
 void MainConsoleController::ConvertInput()
 {
     if (this->_currentCommand == "exit")
