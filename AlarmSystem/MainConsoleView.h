@@ -17,6 +17,7 @@ public:
 	void PrintHelp();
 	void PrintPortStatus(Port*, int);
 	void PrintConnectPort(Port*, Port*);
+	void PrintConnectPortsFail();
 	void CreateNewAlarmPanel();
 	void CreatedNewAlarmPanel();
 	void CreatedNewAlarmPanelFailed();
@@ -24,6 +25,7 @@ public:
 	void PrintGetIdOfAlarmPanel();
 	void PrintRemovedAlarmPanelSuccessful();
 	void PrintRemovedAlarmPanelFailed();
+	void PrintGetTwoPortsToConnect();
 
 };
 #endif

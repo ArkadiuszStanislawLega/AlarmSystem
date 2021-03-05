@@ -28,6 +28,7 @@ int MainConsole::GetAlarmPanelCounter()
          if (!this->_ports[i].IsConnected())
          {
              this->_ports[i].Connect(port);
+             port->Connect(&this->_ports[i]);
              return true;
          }
      }
@@ -87,4 +88,46 @@ int MainConsole::GetAlarmPanelCounter()
      }
 
      return false;
+ }
+
+ Port* MainConsole::FindPort(int id)
+ {
+     Port* port = FindPortMainConsole(id);
+     if (port != 0 && port->GetId() == id)
+         return port;
+
+     else
+     {
+         auto alrmPanel = FindAlarmPanel(id);
+         if (alrmPanel != 0)
+         {
+             port = alrmPanel->GetPort();
+             if (port != 0)
+                 return port;
+         }
+     }
+
+     return 0;
+ }
+
+ Port* MainConsole::FindPortMainConsole(int id)
+ {
+     for (size_t i = 0; i < MAX_NUMBER_OF_PORTS; i++)
+     {
+         if (this->_ports[i].GetId() != false && this->_ports[i].GetId() == id)
+             return &this->_ports[i];
+     }
+
+     return 0;
+ }
+
+ AlarmPanel* MainConsole::FindAlarmPanel(int id)
+ {
+     for (size_t i = 0; i < MAX_NUMBER_OF_DEVICES; i++)
+     {
+         if (this->_alarmPanels[i].GetId() == id)
+             return &this->_alarmPanels[i];
+     }
+     return 0;
+
  }

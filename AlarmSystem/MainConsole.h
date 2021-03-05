@@ -12,19 +12,27 @@ public:
 
     MainConsole();
 
-    Port* GetPorts();
-    bool ConnectPort(Port*);
-    bool DisconnectPort(int);
-
-    bool CreateAlarmPanel(AlarmPanel);
     AlarmPanel* GetAlarmPanels();
-    bool RemoveAlarmPanel(int);
+
+    Port* GetPorts();
+
     int GetAlarmPanelCounter();
+
+    bool ConnectPort(Port*);
+    bool CreateAlarmPanel(AlarmPanel);
+    bool DisconnectPort(int);
+    bool RemoveAlarmPanel(int);
+
+    Port* FindPort(int);
     
 
 private:
     int _alarmPanelCounter;
     Port _ports[MAX_NUMBER_OF_PORTS];
     AlarmPanel _alarmPanels[MAX_NUMBER_OF_DEVICES];
+
+    Port* FindPortMainConsole(int);
+    AlarmPanel* FindAlarmPanel(int);
+
 };
 #endif

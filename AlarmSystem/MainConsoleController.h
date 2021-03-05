@@ -18,22 +18,24 @@ private:
 	MainConsole* _model; 
 
 	bool _isWorking;
+	void CheckInput();
+	void ConvertInput();
+	void MakeCommand();
+	void CreateNewAlarmPanel();
+	void RemoveAlarmPanel();
+
+	Port* FindPort(int);
 
 public:
 	MainConsoleController();
-	void CheckInput();
 	void MainLoop();
-	void ConvertInput();
-	void MakeCommand();
 
 	void PortsStatus();
 	void Connect();
 	void Create();
 	void Enter();
 
-	void CreateNewAlarmPanel();
 	void GetAlarmPanels();
-	void RemoveAlarmPanel();
 
 	AlarmPanelController GetAlarmPanelController();
 	MainConsoleView* GetView();

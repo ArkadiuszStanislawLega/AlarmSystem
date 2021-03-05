@@ -80,3 +80,13 @@ void MainConsoleView::PrintRemovedAlarmPanelFailed()
 {
     std::cout << Label() << "Nie udalo sie usunac Panelu." << std::endl;
 }
+
+void MainConsoleView::PrintGetTwoPortsToConnect()
+{
+    std::cout << Label() << "Podaj 2 numery ID portow ktore chcesz polaczyc." << std::endl;
+}
+
+void MainConsoleView::PrintConnectPortsFail()
+{
+    std::cout << Label() << "Nie udalo sie polaczyc portow." << std::endl;
+}

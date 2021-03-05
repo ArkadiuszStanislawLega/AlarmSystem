@@ -4,6 +4,7 @@
 MainConsoleController::MainConsoleController()
 {
     this->_isWorking = true;
+    this->_command = start;
 }
 
 
@@ -127,8 +128,28 @@ void MainConsoleController::MakeCommand()
 
     void MainConsoleController::Connect()
     {
-       /* this->_model->Connect();
-        this->_view->PrintConnectPort(&this->_model->GetPorts()[0], this->_model->GetControllers()[0].GetModel().GetPort());*/
+        int idPortInput, idPort2Input;
+
+        this->_view->PrintGetTwoPortsToConnect();
+        std::cin >> idPortInput >> idPort2Input;
+
+        auto port1 = FindPort(idPortInput);
+        auto port2 = FindPort(idPort2Input);
+
+
+        if (port1 != 0 && port2 != 0)
+        {
+            port1->Connect(port2);
+            this->_view->PrintConnectPort(port1, port2);
+        }
+        else
+            this->_view->PrintConnectPortsFail();
+
+    }
+
+    Port* MainConsoleController::FindPort(int id)
+    {
+        return this->_model->FindPort(id);
     }
 
     void MainConsoleController::Create()

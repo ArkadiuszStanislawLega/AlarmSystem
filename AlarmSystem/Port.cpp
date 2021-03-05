@@ -53,8 +53,6 @@ std::string Port::GetStatus()
 
 void Port::Connect(Port* port)
 {
-    std::cout << port->GetParent()->GetLabel() << std::endl;
-
     this->_connectedPort = port;
     this->_isConnected = true;
 }
