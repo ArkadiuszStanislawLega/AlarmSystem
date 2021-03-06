@@ -26,6 +26,7 @@ public:
 	void PrintRemovedAlarmPanelSuccessful();
 	void PrintRemovedAlarmPanelFailed();
 	void PrintGetTwoPortsToConnect();
+	void PrintInvalidCommand();
 
 };
 #endif

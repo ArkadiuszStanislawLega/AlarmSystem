@@ -117,7 +117,11 @@ void MainConsoleController::MakeCommand()
         break;
     }
     default:
+    {
+        this->_view->PrintInvalidCommand();
+        this->_view->PrintWelcome();
         break;
+    }
     }
 }
 

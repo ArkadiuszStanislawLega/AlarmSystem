@@ -24,7 +24,7 @@ void MainConsoleView::PrintHelp()
 
 void MainConsoleView::PrintWelcome()
 {
-    std::cout << "Wyswietl help - help" << std::endl;
+    std::cout << "Wyswietl pomoc dotyczaca polecen, wpisz - help" << std::endl;
 }
 
 void MainConsoleView::PrintPortStatus( Port* ports, int size)
@@ -89,4 +89,9 @@ void MainConsoleView::PrintGetTwoPortsToConnect()
 void MainConsoleView::PrintConnectPortsFail()
 {
     std::cout << Label() << "Nie udalo sie polaczyc portow." << std::endl;
+}
+
+void MainConsoleView::PrintInvalidCommand()
+{
+	std::cout << Label() << "Nie ma takiego polecenia." << std::endl;
 }
