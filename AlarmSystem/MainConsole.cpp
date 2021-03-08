@@ -52,9 +52,19 @@ int MainConsole::GetAlarmPanelCounter()
      return false;
  }
 
+ bool MainConsole::IsIdUsed(int id)
+ {
+     for (size_t i = 0; i < MAX_NUMBER_OF_DEVICES; i++)
+     {
+         if (this->_alarmPanels[i].GetId() == id)
+             return true;
+     }
+
+     return false;
+ }
  bool MainConsole::CreateAlarmPanel(AlarmPanel alarmPanel)
  {
-     if (alarmPanel.GetId() != 0)
+     if (alarmPanel.GetId() != 0 && !IsIdUsed(alarmPanel.GetId()))
      {
          for (size_t i = 0; i < MAX_NUMBER_OF_DEVICES; i++)
          {

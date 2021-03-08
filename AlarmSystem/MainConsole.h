@@ -33,6 +33,7 @@ private:
 
     Port* FindPortMainConsole(int);
     AlarmPanel* FindAlarmPanel(int);
+    bool IsIdUsed(int);
 
 };
 #endif
