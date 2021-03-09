@@ -21,17 +21,16 @@ int MainConsole::GetAlarmPanelCounter()
      return this->_ports;
  }
 
- bool MainConsole::ConnectPort(Port* port)
+ bool MainConsole::ConnectPort(int id1, int id2)
  {
-     for (size_t i = 0; i < MAX_NUMBER_OF_PORTS; i++)
+     auto port1 = FindPort(id1);
+     auto port2 = FindPort(id2);
+
+     if (port1 != 0 && port2 != 0)
      {
-         if (!this->_ports[i].IsConnected())
-         {
-             this->_ports[i].Connect(port);
-             port->Connect(&this->_ports[i]);
-             port->GetConnectedPort()->GetId();
-             return true;
-         }
+         port1->Connect(port2);
+         port2->Connect(port1);
+         return true;
      }
 
      return false;
@@ -92,7 +91,7 @@ int MainConsole::GetAlarmPanelCounter()
      {
          if (this->_alarmPanels[i].GetId() == id)
          {
-             std::cout << this->_alarmPanels[i].GetPort()->GetConnectedPort()->GetId() << std::endl;
+             this->_alarmPanels[i].GetPort()->GetConnectedPort()->Disconnect();
              this->_alarmPanels[i] = 0;
              this->_alarmPanelCounter--;
              return true;

@@ -18,7 +18,7 @@ public:
 
     int GetAlarmPanelCounter();
 
-    bool ConnectPort(Port*);
+    bool ConnectPort(int, int);
     bool CreateAlarmPanel(AlarmPanel);
     bool DisconnectPort(int);
     bool RemoveAlarmPanel(int);

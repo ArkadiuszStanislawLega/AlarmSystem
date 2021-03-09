@@ -137,16 +137,8 @@ void MainConsoleController::MakeCommand()
         this->_view->PrintGetTwoPortsToConnect();
         std::cin >> idPortInput >> idPort2Input;
 
-        auto port1 = FindPort(idPortInput);
-        auto port2 = FindPort(idPort2Input);
-
-        if (port1 != 0 && port2 != 0)
-        {
-            port1->Connect(port2);
-            port2->Connect(port1);
-
-            this->_view->PrintConnectPort(port1, port2);
-        }
+        if (this->_model->ConnectPort(idPortInput, idPort2Input))
+            this->_view->PrintConnectPort(FindPort(idPortInput), FindPort(idPort2Input));
         else
             this->_view->PrintConnectPortsFail();
 
