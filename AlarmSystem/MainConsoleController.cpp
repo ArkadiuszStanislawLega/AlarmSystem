@@ -140,10 +140,11 @@ void MainConsoleController::MakeCommand()
         auto port1 = FindPort(idPortInput);
         auto port2 = FindPort(idPort2Input);
 
-
         if (port1 != 0 && port2 != 0)
         {
             port1->Connect(port2);
+            port2->Connect(port1);
+
             this->_view->PrintConnectPort(port1, port2);
         }
         else

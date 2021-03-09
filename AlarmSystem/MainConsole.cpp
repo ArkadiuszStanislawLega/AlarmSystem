@@ -29,6 +29,7 @@ int MainConsole::GetAlarmPanelCounter()
          {
              this->_ports[i].Connect(port);
              port->Connect(&this->_ports[i]);
+             port->GetConnectedPort()->GetId();
              return true;
          }
      }
@@ -91,6 +92,7 @@ int MainConsole::GetAlarmPanelCounter()
      {
          if (this->_alarmPanels[i].GetId() == id)
          {
+             std::cout << this->_alarmPanels[i].GetPort()->GetConnectedPort()->GetId() << std::endl;
              this->_alarmPanels[i] = 0;
              this->_alarmPanelCounter--;
              return true;
