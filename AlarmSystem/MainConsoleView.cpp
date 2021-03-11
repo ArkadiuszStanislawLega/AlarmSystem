@@ -58,7 +58,7 @@ void MainConsoleView::CreatedNewAlarmPanelFailed()
 
 void MainConsoleView::PrintAlarmPanels(AlarmPanel* alarmPanels, int size)
 {
-    std::cout << Label() << "Panele alarmowe dostepne w konsoli(" << to_string(size) << "): " << std::endl;
+    std::cout << Label() << "Panele alarmowe dostepne w konsoli: " << std::endl;
     for (size_t i = 0; i <(size_t) size; i++)
     {
         if (alarmPanels[i].GetId() != 0) 

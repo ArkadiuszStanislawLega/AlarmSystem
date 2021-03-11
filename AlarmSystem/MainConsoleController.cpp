@@ -157,7 +157,6 @@ void MainConsoleController::MakeCommand()
     void MainConsoleController::Enter()
     {
         std::cout << this->_model->GetPorts()[0].GetConnectedPort()->GetParent()->GetId() << std::endl;
-
     }
 
     void MainConsoleController::CreateNewAlarmPanel()
@@ -177,7 +176,7 @@ void MainConsoleController::MakeCommand()
 
     void MainConsoleController::GetAlarmPanels()
     {
-        this->_view->PrintAlarmPanels(this->_model->GetAlarmPanels(), this->_model->GetAlarmPanelCounter());
+        this->_view->PrintAlarmPanels(this->_model->GetAlarmPanels(), this->_model->MAX_NUMBER_OF_DEVICES);
     }
 
     void MainConsoleController::RemoveAlarmPanel()
