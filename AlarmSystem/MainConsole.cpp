@@ -91,7 +91,9 @@ int MainConsole::GetAlarmPanelCounter()
      {
          if (this->_alarmPanels[i].GetId() == id)
          {
-             this->_alarmPanels[i].GetPort()->GetConnectedPort()->Disconnect();
+             if(this->_alarmPanels[i].GetPort()->IsConnected())
+                this->_alarmPanels[i].GetPort()->GetConnectedPort()->Disconnect();
+
              this->_alarmPanels[i] = 0;
              this->_alarmPanelCounter--;
              return true;
